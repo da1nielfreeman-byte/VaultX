@@ -532,12 +532,12 @@ function HeroSection({ onBrowse, onLogin, user }) {
 
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero-ey">
-          <i className="fas fa-fire" /> Premium Video Content Platform
+          <i className="fas fa-fire" /> Premium Child porn content
         </div>
 
         <h1 className="hero-title">
-          <span className="grad-w">UNLOCK YOUR</span><br />
-          <span className="grad-r">POTENTIAL</span>
+          <span className="grad-w">UNLOCK the best</span><br />
+          <span className="grad-r">VIDEOS ONLINE</span>
         </h1>
 
         <p className="hero-sub">
