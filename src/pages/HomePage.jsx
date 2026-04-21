@@ -331,74 +331,108 @@ function req(method, url, body = null, auth = false) {
 ════════════════════════════════════════════════════════════ */
 const CATALOG = [
   {
-    id: 'c001', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
+    id: '661f9c8a2d4b7e1a9f3c5d01', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
     desc: 'Learn Hollywood-level camera work, lighting setups, and shot composition from award-winning cinematographers. 24 deep-dive modules.',
     thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
-    cat: 'Filmmaking', price: 29.99, duration: '8h 42m', lessons: 24,
+    cat: 'Teens', price: 29.99, duration: '8h 42m', lessons: 24,
     rating: 4.9, reviews: 1284, students: 8420, isNew: true, isPremium: true,
     instructor: 'Jordan Cole', tags: ['cinematography','film','camera'], progress: 0,
   },
   {
-    id: 'c002', title: 'Beat Production Masterclass', subtitle: 'From Zero to Producer',
+    id: '661f9c8a2d4b7e1a9f3c5d02', title: 'Beat Production Masterclass', subtitle: 'From Zero to Producer',
     desc: 'Create chart-topping beats using industry-standard DAWs. Covers trap, drill, R&B, and electronic production from scratch.',
-    thumb: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=640&h=360&fit=crop&q=80',
-    cat: 'Music', price: 24.99, duration: '12h 15m', lessons: 38,
+    thumb: 'IMG-20260421-WA0001.jpg',
+    cat: 'Stepdad & Stepdaughter', price: 24.99, duration: '12h 15m', lessons: 38,
     rating: 4.8, reviews: 2103, students: 15200, isNew: false, isPremium: true,
     instructor: 'Maya Beats', tags: ['music','production','beats'], progress: 35,
   },
   {
-    id: 'c003', title: 'Elite Fitness Protocol', subtitle: 'Military-Grade Conditioning',
+    id: '661f9c8a2d4b7e1a9f3c5d03', title: 'Elite Fitness Protocol', subtitle: 'Military-Grade Conditioning',
     desc: 'A 12-week transformation program used by special forces athletes. Combines HIIT, strength, and advanced mobility work.',
-    thumb: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=640&h=360&fit=crop&q=80',
-    cat: 'Fitness', price: 19.99, duration: '6h 30m', lessons: 42,
+    thumb: 'IMG-20260421-WA0002.jpg',
+    cat: 'Pre-teen', price: 19.99, duration: '6h 30m', lessons: 42,
     rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: true,
     instructor: 'Marcus Steel', tags: ['fitness','training','health'], progress: 68,
   },
   {
-    id: 'c004', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little stepdaughter',
+    id: '661f9c8a2d4b7e1a9f3c5d04', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little stepdaughter',
     desc: 'Build stunning dark-themed interfaces with glassmorphism, neumorphism, and advanced micro-animations in Figma and code.',
-    thumb: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=640&h=360&fit=crop&q=80',
-    cat: 'Stepdad & Stepdaughter', price: 34.99, duration: '10h 05m', lessons: 30,
+    thumb: 'IMG-20260421-WA0003.jpg',
+    cat: 'Daddy x daughter', price: 34.99, duration: '10h 05m', lessons: 30,
     rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: true,
     instructor: 'Aria Nova', tags: ['design','ui','figma'], progress: 0,
   },
   {
-    id: 'c005', title: 'I hate blowjobs but she made me love it', subtitle: '',
+    id: '661f9c8a2d4b7e1a9f3c5d05', title: 'I hate blowjobs but she made me love it', subtitle: '',
     desc: 'Master the art of candid photography in urban environments. Learn stealth techniques and advanced Lightroom post-processing.',
-    thumb: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=640&h=360&fit=crop&q=80',
+    thumb: 'IMG-20260421-WA0004.jpg',
     cat: 'Stepson & Stepmom', price: 0, duration: '3h 20m', lessons: 12,
-    rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: false,
+    rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: true,
     instructor: 'Lin Zhang', tags: ['photography','street','lightroom'], progress: 0,
   },
   {
-    id: 'c006', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
+    id: '661f9c8a2d4b7e1a9f3c5d06', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
-    thumb: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=640&h=360&fit=crop&q=80',
+    thumb: 'IMG-20260421-WA0008.jpg',
     cat: 'Teens', price: 49.99, duration: '15h 40m', lessons: 52,
     rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
-    id: 'c007', title: 'When I am alone in my room', subtitle: 'Real orgasm, real creampie, no acting',
+    id: '661f9c8a2d4b7e1a9f3c5d07', title: 'When I am alone in my room', subtitle: 'Real orgasm, real creampie, no acting',
     desc: 'My daddy pins me down, chokes me, and pounds my tight pussy until I’m screaming. I cum twice before he fills me up with a huge creampie that drips out while I’m still shaking. Passionate, rough, and 100% real',
-    thumb: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=640&h=360&fit=crop&q=80',
-    cat: 'Teens', price: 39.99, duration: '20h 10m', lessons: 68,
+    thumb: 'IMG-20260421-WA0006.jpg',
+    cat: 'Lesbian teen', price: 39.99, duration: '20h 10m', lessons: 68,
     rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: true,
     instructor: 'Lisa Sharma', tags: ['react','nextjs','coding'], progress: 12,
   },
   {
-    id: 'c008', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
+    id: '661f9c8a2d4b7e1a9f3c5d08', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
     desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
-    thumb: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=640&h=360&fit=crop&q=80',
-    cat: 'Dog knotting', price: 44.99, duration: '9h 55m', lessons: 28,
+    thumb: 'IMG-20260421-WA0007.jpg',
+    cat: 'Daddy x daughter', price: 44.99, duration: '9h 55m', lessons: 28,
     rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
   },
+  {
+    id: '661f9c8a2d4b7e1a9f3c5d09', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
+    desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
+    thumb: 'Screenshot_2026-04-21-19-28-37-295_com.google.android.apps.photos~2.jpg',
+    cat: 'Dog knotting', price: 44.99, duration: '9h 55m', lessons: 28,
+    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
+    instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
+
+  },
+  {
+    id: '661f9c8a2d4b7e1a9f3c5d0a', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
+    desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
+    thumb: 'IMG-20260421-WA0012.jpg',
+    cat: 'Pre-teen', price: 49.99, duration: '15h 40m', lessons: 52,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
+    instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
+  },
+  {
+    id: '661f9c8a2d4b7e1a9f3c5d0b', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
+    desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
+    thumb: 'IMG-20260421-WA0013.jpg',
+    cat: 'Stepdad & Stepdaughter', price: 49.99, duration: '15h 40m', lessons: 52,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
+    instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
+  },
+  {
+    id: '661f9c8a2d4b7e1a9f3c5d0c', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
+    desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
+    thumb: 'IMG-20260421-WA0011.jpg',
+    cat: 'Lesbian teen', price: 49.99, duration: '15h 40m', lessons: 52,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
+    instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
+  }
+  
 ];
 
 const TESTIMONIALS = [];
 
-const CATS = ['All','Daddy x daughter','Pre-teen','Teens','Dog knotting','Stepson & Stepmom','Stepdad & Stepdaughter','Lesbian teen','Gay teens'];
+const CATS = ['All','Daddy x daughter','Pre-teen','Teens','Dog knotting','Stepson & Stepmom','Stepdad & Stepdaughter','Lesbian teen'];
 
 const TICKER_ITEMS = ['500+ active users','New content weekly','HD quality guaranteed','Lifetime access','Private community'];
 
@@ -617,7 +651,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
     <div className="cc" onClick={() => onClick(item)} style={{ animationDelay: `${delay}s` }}>
       {/* Thumbnail */}
       <div  className="cc-thumb">
-        <img style={{filter: 'blur(7px)'}} src={item.thumb} alt={item.title} loading="lazy" />
+        <img style={{filter: 'blur(5px)'}} src={item.thumb} alt={item.title} loading="lazy" />
         <div className="cc-ov">
           {locked
             ? <div className="cc-play"><i className="fas fa-lock" style={{ paddingLeft: 0 }} /></div>
