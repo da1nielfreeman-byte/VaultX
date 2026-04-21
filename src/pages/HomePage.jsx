@@ -331,9 +331,9 @@ function req(method, url, body = null, auth = false) {
 ════════════════════════════════════════════════════════════ */
 const CATALOG = [
   {
-    id: 'c001', title: 'Master Cinematography', subtitle: 'Pro Film Techniques',
+    id: 'c001', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
     desc: 'Learn Hollywood-level camera work, lighting setups, and shot composition from award-winning cinematographers. 24 deep-dive modules.',
-    thumb: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=640&h=360&fit=crop&q=80',
+    thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
     cat: 'Filmmaking', price: 29.99, duration: '8h 42m', lessons: 24,
     rating: 4.9, reviews: 1284, students: 8420, isNew: true, isPremium: true,
     instructor: 'Jordan Cole', tags: ['cinematography','film','camera'], progress: 0,
@@ -355,57 +355,52 @@ const CATALOG = [
     instructor: 'Marcus Steel', tags: ['fitness','training','health'], progress: 68,
   },
   {
-    id: 'c004', title: 'Dark UI Design System', subtitle: 'Glassmorphism & Motion',
+    id: 'c004', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little stepdaughter',
     desc: 'Build stunning dark-themed interfaces with glassmorphism, neumorphism, and advanced micro-animations in Figma and code.',
     thumb: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=640&h=360&fit=crop&q=80',
-    cat: 'Design', price: 34.99, duration: '10h 05m', lessons: 30,
+    cat: 'Stepdad & Stepdaughter', price: 34.99, duration: '10h 05m', lessons: 30,
     rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: true,
     instructor: 'Aria Nova', tags: ['design','ui','figma'], progress: 0,
   },
   {
-    id: 'c005', title: 'Street Photography Secrets', subtitle: 'Capture Raw Human Stories',
+    id: 'c005', title: 'I hate blowjobs but she made me love it', subtitle: '',
     desc: 'Master the art of candid photography in urban environments. Learn stealth techniques and advanced Lightroom post-processing.',
     thumb: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=640&h=360&fit=crop&q=80',
-    cat: 'Photography', price: 0, duration: '3h 20m', lessons: 12,
+    cat: 'Stepson & Stepmom', price: 0, duration: '3h 20m', lessons: 12,
     rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: false,
     instructor: 'Lin Zhang', tags: ['photography','street','lightroom'], progress: 0,
   },
   {
-    id: 'c006', title: 'Crypto Trading Strategies', subtitle: 'Institutional-Level Analysis',
-    desc: 'Advanced technical analysis, on-chain metrics, and algorithmic trading strategies used by professional crypto fund managers.',
+    id: 'c006', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
+    desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=640&h=360&fit=crop&q=80',
-    cat: 'Finance', price: 49.99, duration: '15h 40m', lessons: 52,
+    cat: 'Teens', price: 49.99, duration: '15h 40m', lessons: 52,
     rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
-    id: 'c007', title: 'React & Next.js Mastery', subtitle: 'Build Production Apps',
-    desc: 'Full-stack web development with React 19, Next.js 15, and modern architecture patterns. Ship real SaaS products from day one.',
+    id: 'c007', title: 'When I am alone in my room', subtitle: 'Real orgasm, real creampie, no acting',
+    desc: 'My daddy pins me down, chokes me, and pounds my tight pussy until I’m screaming. I cum twice before he fills me up with a huge creampie that drips out while I’m still shaking. Passionate, rough, and 100% real',
     thumb: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=640&h=360&fit=crop&q=80',
-    cat: 'Coding', price: 39.99, duration: '20h 10m', lessons: 68,
+    cat: 'Teens', price: 39.99, duration: '20h 10m', lessons: 68,
     rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: true,
-    instructor: 'Dev Sharma', tags: ['react','nextjs','coding'], progress: 12,
+    instructor: 'Lisa Sharma', tags: ['react','nextjs','coding'], progress: 12,
   },
   {
-    id: 'c008', title: 'Luxury Brand Building', subtitle: 'Premium Positioning Playbook',
-    desc: 'How iconic brands command 10x prices. Covers identity design, brand storytelling, and cultivating aspirational desirability.',
+    id: 'c008', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
+    desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=640&h=360&fit=crop&q=80',
-    cat: 'Business', price: 44.99, duration: '9h 55m', lessons: 28,
+    cat: 'Dog knotting', price: 44.99, duration: '9h 55m', lessons: 28,
     rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
   },
 ];
 
-const TESTIMONIALS = [
-  { name: 'James K.',  role: 'Independent Filmmaker', init: 'JK', rating: 5, text: 'The cinematography course completely redefined how I approach every shot. My short film won three festival awards within months of finishing.' },
-  { name: 'Priya S.',  role: 'Fitness Coach',          init: 'PS', rating: 5, text: 'The Elite Protocol gave me frameworks I now use with every client. The ROI was immediate — worth it ten times over.' },
-  { name: 'Carlos R.', role: 'Crypto Trader',           init: 'CR', rating: 5, text: "Alex Mercer's on-chain methods helped me spot a 40x opportunity I would have missed entirely. This content pays for itself." },
-  { name: 'Aiko T.',   role: 'UI/UX Designer',          init: 'AT', rating: 5, text: 'The Dark UI Design System is the most actionable design course I have ever taken. My entire portfolio is built around these techniques.' },
-];
+const TESTIMONIALS = [];
 
-const CATS = ['All','Filmmaking','Music','Fitness','Design','Photography','Finance','Coding','Business'];
+const CATS = ['All','Daddy x daughter','Pre-teen','Teens','Dog knotting','Stepson & Stepmom','Stepdad & Stepdaughter','Lesbian teen','Gay teens'];
 
-const TICKER_ITEMS = ['8,000+ students enrolled','New content weekly','HD quality guaranteed','Lifetime access','Money-back guarantee','Expert instructors','Private community'];
+const TICKER_ITEMS = ['500+ active users','New content weekly','HD quality guaranteed','Lifetime access','Private community'];
 
 /* ════════════════════════════════════════════════════════════
    TOAST SYSTEM
@@ -537,11 +532,10 @@ function HeroSection({ onBrowse, onLogin, user }) {
 
         <h1 className="hero-title">
           <span className="grad-w">UNLOCK the best</span><br />
-          <span className="grad-r">VIDEOS ONLINE</span>
+          <span className="grad-r">CANDY VIDEOS</span>
         </h1>
 
-        <p className="hero-sub">
-          Access world-class video courses from elite instructors. Cinematography, music production, fitness, design, and more — all in one place.
+        <p className="hero-sub"> Gain access to the best premium candy contents you are one click away daddy don't be shy   
         </p>
 
         <div className="hero-cta">
@@ -550,17 +544,17 @@ function HeroSection({ onBrowse, onLogin, user }) {
           </button>
           {!user && (
             <button className="btn btn-out" style={{ padding: '14px 36px', fontSize: 15 }} onClick={onLogin}>
-              <i className="fas fa-user-plus" /> Join Free
+              <i className="fas fa-user-plus" /> Join now 
             </button>
           )}
         </div>
 
         <div className="hero-trust">
           {[
-            { icon: 'fa-users',        text: '87,000+ Students' },
-            { icon: 'fa-star',         text: '4.9 Avg Rating' },
+            { icon: 'fa-users',        text: '7,000+ Users' },
+            { icon: 'fa-star',         text: '4.6 Avg Rating' },
             { icon: 'fa-infinity',     text: 'Lifetime Access' },
-            { icon: 'fa-shield-alt',   text: 'Secure Payments' },
+            
           ].map(({ icon, text }) => (
             <div key={text} className="trust-item">
               <i className={`fas ${icon}`} /> {text}
@@ -595,10 +589,9 @@ function Ticker() {
 ════════════════════════════════════════════════════════════ */
 function StatsBar() {
   const stats = [
-    { num: '87K+',  label: 'Students Enrolled',   icon: 'fa-users' },
-    { num: '120+',  label: 'Expert Instructors',   icon: 'fa-chalkboard-teacher' },
+    { num: '7,000+',  label: 'Users Registered',   icon: 'fa-users' },
     { num: '500+',  label: 'Hours of Content',     icon: 'fa-film' },
-    { num: '98%',   label: 'Satisfaction Rate',    icon: 'fa-star' },
+    { num: '90%',   label: 'Satisfaction Rate',    icon: 'fa-star' },
   ];
   return (
     <section className="section" style={{ paddingTop: 60, paddingBottom: 60 }}>
@@ -623,8 +616,8 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
   return (
     <div className="cc" onClick={() => onClick(item)} style={{ animationDelay: `${delay}s` }}>
       {/* Thumbnail */}
-      <div className="cc-thumb">
-        <img src={item.thumb} alt={item.title} loading="lazy" />
+      <div  className="cc-thumb">
+        <img style={{filter: 'blur(7px)'}} src={item.thumb} alt={item.title} loading="lazy" />
         <div className="cc-ov">
           {locked
             ? <div className="cc-play"><i className="fas fa-lock" style={{ paddingLeft: 0 }} /></div>
@@ -673,7 +666,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
         </div>
         <div className="cc-by">
           <i className="fas fa-user-circle" style={{ marginRight: 5 }} />{item.instructor}
-          &nbsp;&nbsp;<i className="fas fa-book-open" style={{ marginRight: 5 }} />{item.lessons} lessons
+          &nbsp;&nbsp;<i className="fas fa-book-open" style={{ marginRight: 5 }} />{item.lessons} Videos
         </div>
 
         {/* Progress bar (if any) */}
@@ -1447,11 +1440,11 @@ export default function HomePage() {
                 <i className="fas fa-film" /> Content Library
               </div>
               <div className="sh grad-w" style={{ fontSize: 'clamp(28px,4vw,48px)' }}>
-                PREMIUM <span className="grad-r">COURSES</span>
+                PREMIUM <span className="grad-r">Content</span>
               </div>
             </div>
             <div style={{ fontSize: 13, color: 'var(--c-text2)' }}>
-              {filtered.length} course{filtered.length !== 1 ? 's' : ''} available
+              {filtered.length} content{filtered.length !== 1 ? 's' : ''} available
             </div>
           </div>
 
@@ -1468,18 +1461,11 @@ export default function HomePage() {
               <i className="fas fa-search" />
               <input
                 className="inp" style={{ paddingLeft: 40 }}
-                placeholder="Search courses..."
+                placeholder="Search contents..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
               />
             </div>
-            <select className="sort-sel" value={sortBy} onChange={e => setSortBy(e.target.value)}>
-              <option value="popular">Most Popular</option>
-              <option value="newest">Newest First</option>
-              <option value="rating">Top Rated</option>
-              <option value="price-lo">Price: Low to High</option>
-              <option value="price-hi">Price: High to Low</option>
-            </select>
           </div>
 
           {/* Grid */}
