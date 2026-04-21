@@ -555,11 +555,32 @@ function Navbar({ user, scrolled, onLogin, onLogout, onProfile, toast }) {
 function HeroSection({ onBrowse, onLogin, user }) {
   return (
     <section id="vx-hero">
+
+      <video
+        autoPlay loop muted playsInline
+        poster="IMG-20260421-WA0005.jpg"
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover',
+          zIndex: 0, opacity: 0.35,
+        }}
+      >
+        <source src="/videos/VID-20260421-WA0015.mp4"  type="video/mp4" />
+        <source src="/videos/VID-20260421-WA0015.webm" type="video/webm" />
+      </video>
+
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 1,
+        background: 'transparent',
+      }} />
+
+
       <div className="orb orb-1" />
       <div className="orb orb-2" />
       <div className="orb orb-3" />
 
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div style={{ position: 'relative', zIndex: 3 }}>
         <div className="hero-ey">
           <i className="fas fa-fire" /> Premium Child porn content
         </div>
