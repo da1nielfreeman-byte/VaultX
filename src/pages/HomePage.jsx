@@ -1271,7 +1271,7 @@ function CTABanner({ user, onLogin }) {
               <i className="fas fa-bolt" /> Limited preview time
             </div>
             <div className="sh grad-w" style={{ fontSize: 'clamp(28px,4vw,50px)', marginBottom: 16 }}>
-              START YOUR JOURNEY<br /><span className="grad-r">TODAY</span>
+              <br /><span className="grad-r">TODAY</span>
             </div>
             <p style={{ fontSize: 15, color: 'var(--c-text2)', lineHeight: 1.7 }}>
               Join over 87,000 students who have already transformed their skills and careers with VaultX content.
