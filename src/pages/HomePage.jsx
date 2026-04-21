@@ -569,7 +569,7 @@ function HeroSection({ onBrowse, onLogin, user }) {
           <span className="grad-r">CANDY VIDEOS</span>
         </h1>
 
-        <p className="hero-sub"> Gain access to the best premium candy contents you are one click away daddy don't be shy   
+        <p className="hero-sub"> Gain access to the best premium candy contents, you are one click away daddy don't be shy   
         </p>
 
         <div className="hero-cta">
@@ -1229,10 +1229,10 @@ function TestimonialsSection() {
         <div className="section-hdr">
           <div>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'var(--c-red)', marginBottom: 10 }}>
-              <i className="fas fa-quote-left" /> Student Stories
+              <i className="fas fa-quote-left" /> Candid HD Human Content
             </div>
             <div className="sh grad-w" style={{ fontSize: 'clamp(28px,4vw,46px)' }}>
-              REAL RESULTS,<br /><span className="grad-r">REAL PEOPLE</span>
+              Good quality Videos,<br /><span className="grad-r">RAW MOMENTS</span>
             </div>
           </div>
         </div>
@@ -1268,7 +1268,7 @@ function CTABanner({ user, onLogin }) {
         <div id="vx-cta">
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'var(--c-red)', marginBottom: 12 }}>
-              <i className="fas fa-bolt" /> Limited Time Offer
+              <i className="fas fa-bolt" /> Limited preview time
             </div>
             <div className="sh grad-w" style={{ fontSize: 'clamp(28px,4vw,50px)', marginBottom: 16 }}>
               START YOUR JOURNEY<br /><span className="grad-r">TODAY</span>
