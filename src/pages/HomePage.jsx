@@ -1226,6 +1226,7 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
       }
 
       TokenStore.set(accessToken, refreshToken);
+      localStorage.setItem("user", JSON.stringify(user));
 
       toast('s', 'Welcome!', mode === 'login' ? 'Signed in successfully.' : 'Account created!');
       onSuccess(user);
@@ -1555,7 +1556,11 @@ function Footer() {
 ════════════════════════════════════════════════════════════ */
 export default function HomePage() {
   /* ── State ────────────────────────────────────────────── */
-  const [user, setUser]                     = useState(null);
+  const [user, setUser]                     = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser): null;
+  });
+
   const [scrolled, setScrolled]             = useState(false);
   const [activeCat, setActiveCat]           = useState('All');
   const [search, setSearch]                 = useState('');
