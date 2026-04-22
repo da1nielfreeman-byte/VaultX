@@ -289,16 +289,26 @@ const STYLES = `
   .status-pending { background:rgba(255,165,0,.1); color:orange; border:1px solid rgba(255,165,0,.2); }
 `;
 
-/* ════════════════════════════════════════════════════════════
-   API SERVICE  —  swap base URL via REACT_APP_API_URL env var
-════════════════════════════════════════════════════════════ */
-const API = '/api';
+const API = 'https://vaultx-backend-51yt.onrender.com/api/v1';
+
+const TokenStore = {
+  set(accessToken, refreshToken) {
+    if (accessToken)  localStorage.setItem('vx_access',  accessToken);
+    if (refreshToken) localStorage.setItem('vx_refresh', refreshToken);
+  },
+  getAccess()  { return localStorage.getItem('vx_access'); },
+  getRefresh() { return localStorage.getItem('vx_refresh'); },
+  clear() {
+    localStorage.removeItem('vx_access');
+    localStorage.removeItem('vx_refresh');
+  },
+};
 
 const apiService = {
   /* Auth */
   login:        (body)         => req('POST', `${API}/auth/login`,         body),
   register:     (body)         => req('POST', `${API}/auth/register`,      body),
-  logout:       ()             => req('POST', `${API}/auth/logout`,        null, true),
+  logout:       ()             => req('POST', `${API}/auth/logout`,        null, true), // destroy session
   getProfile:   ()             => req('GET',  `${API}/user/profile`,       null, true),
   updateProfile:(body)         => req('PATCH',`${API}/user/profile`,       body, true),
 
@@ -321,14 +331,33 @@ const apiService = {
 };
 
 function req(method, url, body = null, auth = false) {
-  const opts = { method, headers: { 'Content-Type': 'application/json' }, ...(auth && { credentials: 'include' }) };
+  const headers = { 'Content-Type': 'application/json' };
+
+  // Attach stored JWT on every authenticated request
+  if (auth) {
+    const token = TokenStore.getAccess();
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  const opts = {
+    method,
+    headers,
+    ...(auth && { credentials: 'include' }),
+  };
   if (body) opts.body = JSON.stringify(body);
-  return fetch(url, opts).then(r => r.json());
+
+  return fetch(url, opts).then(async r => {
+    const data = await r.json();
+    if (!r.ok) {
+      const err  = new Error(data?.message || `HTTP ${r.status}`);
+      err.status = r.status;
+      err.data   = data;
+      throw err;
+    }
+    return data;
+  });
 }
 
-/* ════════════════════════════════════════════════════════════
-   HARDCODED CONTENT CATALOG
-════════════════════════════════════════════════════════════ */
 const CATALOG = [
   {
     id: '661f9c8a2d4b7e1a9f3c5d01', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
@@ -503,12 +532,12 @@ function Navbar({ user, scrolled, onLogin, onLogout, onProfile, toast }) {
             </button>
             <div style={{ position: 'relative' }} ref={dropRef}>
               <button className="avatar-btn" onClick={() => setDrop(d => !d)}>
-                {user.name.charAt(0).toUpperCase()}
+                {user.fullName?.charAt(0).toUpperCase()}
               </button>
               {drop && (
                 <div className="pdrop">
                   <div className="pdrop-hd">
-                    <div style={{ fontWeight: 700, fontSize: 14 }}>{user.name}</div>
+                    <div style={{ fontWeight: 700, fontSize: 14 }}>{user.fullName}</div>
                     <div style={{ fontSize: 12, color: 'var(--c-text3)', marginTop: 3 }}>{user.email}</div>
                     <div style={{ marginTop: 8 }}>
                       <span className="badge badge-free">Free Plan</span>
@@ -1139,38 +1168,101 @@ function PaymentModal({ item, onClose, toast }) {
    AUTH MODAL  (Login / Register)
 ════════════════════════════════════════════════════════════ */
 function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
-  const [mode, setMode] = useState(initMode || 'login');
-  const [form, setForm] = useState({ name: '', email: '', password: '', confirm: '' });
-  const [loading, setLoading] = useState(false);
+  const [mode,      setMode]      = useState(initMode || 'login');
+  const [form,      setForm]      = useState({ name: '', email: '', password: '', confirm: '' });
+  const [loading,   setLoading]   = useState(false);
+  const [authError, setAuthError] = useState('');   // ← inline error banner state
+  const [showPw,    setShowPw]    = useState(false); // ← password visibility toggle
 
-  const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }));
+  const set = k => e => setForm(f => ({ ...f, [k]: e.target.value }));
+
+  // Clear form error when user switches between login and register
+  const switchMode = newMode => {
+    setMode(newMode);
+    setAuthError('');
+    setForm({ name: '', email: '', password: '', confirm: '' });
+  };
 
   const submit = async () => {
-    if (!form.email || !form.password) { toast('w', '', 'Please fill in all required fields.'); return; }
-    if (mode === 'register' && form.password !== form.confirm) { toast('w', '', 'Passwords do not match.'); return; }
+    setAuthError('');
+
+    // ── Client-side validation ──
+    if (mode === 'register' && !form.name.trim()) {
+      setAuthError('Please enter your full name.');
+      return;
+    }
+    if (!form.email || !form.password) {
+      setAuthError('Please fill in your email and password.');
+      return;
+    }
+    if (mode === 'register' && form.password.length < 8) {
+      setAuthError('Password must be at least 8 characters long.');
+      return;
+    }
+    if (mode === 'register' && form.password !== form.confirm) {
+      setAuthError('Your passwords do not match. Please check and try again.');
+      return;
+    }
+
     setLoading(true);
     try {
       const res = mode === 'login'
         ? await apiService.login({ email: form.email, password: form.password })
-        : await apiService.register({ name: form.name, email: form.email, password: form.password });
+        : await apiService.register({
+            fullName:        form.name,
+            email:           form.email,
+            password:        form.password,
+            confirmPassword: form.confirm,
+          });
 
-      if (res.user || res.token) {
-        toast('s', 'Welcome!', mode === 'login' ? 'Signed in successfully.' : 'Account created!');
-        onSuccess(res.user || { name: form.name || form.email.split('@')[0], email: form.email });
-        onClose();
-      } else {
-        // Demo fallback (no real backend yet)
-        const mockUser = { name: form.name || form.email.split('@')[0], email: form.email };
-        toast('s', 'Welcome!', `Signed in as ${mockUser.name}`);
-        onSuccess(mockUser);
-        onClose();
+      const payload      = res.data || res;
+      const user         = payload.user;
+      const accessToken  = payload.accessToken;
+      const refreshToken = payload.refreshToken;
+
+      if (!user) {
+        setAuthError('Unexpected response from server. Please try again.');
+        return;
       }
-    } catch (_) {
-      // Demo fallback
-      const mockUser = { name: form.name || form.email.split('@')[0], email: form.email };
-      toast('s', 'Welcome!', `Signed in as ${mockUser.name}`);
-      onSuccess(mockUser);
+
+      TokenStore.set(accessToken, refreshToken);
+
+      toast('s', 'Welcome!', mode === 'login' ? 'Signed in successfully.' : 'Account created!');
+      onSuccess(user);
       onClose();
+
+    } catch (err) {
+      const status  = err?.status;
+      const message = err?.data?.message || err?.message || '';
+
+      if (status === 409) {
+        setAuthError('An account with this email already exists. Try signing in instead.');
+
+      } else if (status === 401) {
+        setAuthError('Incorrect email or password. Please try again.');
+
+      } else if (status === 400) {
+        setAuthError(message || 'Some of your details are invalid. Please check and try again.');
+
+      } else if (status === 403) {
+        setAuthError('Your account has been suspended. Please contact support.');
+
+      } else if (status === 404) {
+        setAuthError('No account found with that email address.');
+
+      } else if (status === 429) {
+        setAuthError('Too many attempts. Please wait a few minutes and try again.');
+
+      } else if (status >= 500) {
+        setAuthError('Our servers are having trouble right now. Please try again in a moment.');
+
+      } else if (message.toLowerCase().includes('fetch') || message.toLowerCase().includes('network')) {
+        setAuthError('Cannot connect to the server. Please check your internet connection.');
+
+      } else {
+        setAuthError(message || 'Something went wrong. Please try again.');
+      }
+
     } finally {
       setLoading(false);
     }
@@ -1179,60 +1271,152 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
   return (
     <div className="modal-bd" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal" style={{ maxWidth: 440 }}>
+
         <div className="modal-hdr">
           <div className="modal-ttl">{mode === 'login' ? 'SIGN IN' : 'JOIN VAULTX'}</div>
           <button className="modal-close" onClick={onClose}><i className="fas fa-times" /></button>
         </div>
+
         <div className="modal-body">
+
+          {/* Mode toggle */}
           <div className="auth-tog">
-            <button className={mode === 'login' ? 'active' : ''} onClick={() => setMode('login')}>Sign In</button>
-            <button className={mode === 'register' ? 'active' : ''} onClick={() => setMode('register')}>Create Account</button>
+            <button className={mode === 'login'    ? 'active' : ''} onClick={() => switchMode('login')}>Sign In</button>
+            <button className={mode === 'register' ? 'active' : ''} onClick={() => switchMode('register')}>Create Account</button>
           </div>
 
+          {/* ── Inline error banner ── */}
+          {authError && (
+            <div style={{
+              display:       'flex',
+              alignItems:    'flex-start',
+              gap:           10,
+              padding:       '12px 14px',
+              marginBottom:  16,
+              background:    'rgba(232,25,44,.07)',
+              border:        '1px solid rgba(232,25,44,.25)',
+              borderRadius:  10,
+              animation:     'fadeIn .2s ease',
+            }}>
+              <i className="fas fa-exclamation-circle"
+                 style={{ color: 'var(--c-red)', marginTop: 2, flexShrink: 0 }} />
+              <div style={{ fontSize: 13, color: 'var(--c-red)', fontWeight: 500, lineHeight: 1.5 }}>
+                {authError}
+              </div>
+            </div>
+          )}
+
+          {/* Full name — register only */}
           {mode === 'register' && (
             <div className="form-group">
               <label className="lbl">Full Name</label>
-              <input className="inp" placeholder="Your full name" value={form.name} onChange={set('name')} />
+              <input
+                className="inp"
+                placeholder="Your full name"
+                value={form.name}
+                onChange={set('name')}
+                autoComplete="name"
+              />
             </div>
           )}
+
+          {/* Email */}
           <div className="form-group">
             <label className="lbl">Email Address</label>
-            <input className="inp" type="email" placeholder="you@email.com" value={form.email} onChange={set('email')} />
+            <input
+              className="inp"
+              type="email"
+              placeholder="you@email.com"
+              value={form.email}
+              onChange={set('email')}
+              autoComplete="email"
+            />
           </div>
+
+          {/* Password with show/hide toggle */}
           <div className="form-group">
             <label className="lbl">Password</label>
-            <input className="inp" type="password" placeholder="••••••••" value={form.password} onChange={set('password')} />
+            <div style={{ position: 'relative' }}>
+              <input
+                className="inp"
+                type={showPw ? 'text' : 'password'}
+                placeholder="••••••••"
+                value={form.password}
+                onChange={set('password')}
+                style={{ paddingRight: 44 }}
+                autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPw(v => !v)}
+                style={{
+                  position:   'absolute', right: 12, top: '50%',
+                  transform:  'translateY(-50%)',
+                  background: 'none', border: 'none',
+                  color:      'var(--c-text3)', cursor: 'pointer', fontSize: 13,
+                }}
+              >
+                <i className={`fas ${showPw ? 'fa-eye-slash' : 'fa-eye'}`} />
+              </button>
+            </div>
           </div>
+
+          {/* Confirm password — register only */}
           {mode === 'register' && (
             <div className="form-group">
               <label className="lbl">Confirm Password</label>
-              <input className="inp" type="password" placeholder="••••••••" value={form.confirm} onChange={set('confirm')} />
+              <input
+                className="inp"
+                type="password"
+                placeholder="••••••••"
+                value={form.confirm}
+                onChange={set('confirm')}
+                autoComplete="new-password"
+              />
+              {/* Live match indicator */}
+              {form.confirm && (
+                <div style={{ fontSize: 11, marginTop: 5, display: 'flex', alignItems: 'center', gap: 5,
+                  color: form.password === form.confirm ? 'var(--c-green)' : 'var(--c-red)' }}>
+                  <i className={`fas ${form.password === form.confirm ? 'fa-check' : 'fa-times'}`} />
+                  {form.password === form.confirm ? 'Passwords match' : 'Passwords do not match'}
+                </div>
+              )}
             </div>
           )}
 
-          <button className="btn btn-red" style={{ width: '100%', justifyContent: 'center', padding: '14px' }} onClick={submit} disabled={loading}>
+          {/* Submit button */}
+          <button
+            className="btn btn-red"
+            style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
+            onClick={submit}
+            disabled={loading}
+          >
             {loading
               ? <><i className="fas fa-spinner fa-spin" /> Please wait...</>
-              : mode === 'login' ? <><i className="fas fa-sign-in-alt" /> Sign In</> : <><i className="fas fa-user-plus" /> Create Account</>
+              : mode === 'login'
+                ? <><i className="fas fa-sign-in-alt" /> Sign In</>
+                : <><i className="fas fa-user-plus" /> Create Account</>
             }
           </button>
 
+          {/* Forgot password — login only */}
           {mode === 'login' && (
             <div style={{ textAlign: 'center', marginTop: 14 }}>
-              <button style={{ background: 'none', border: 'none', color: 'var(--c-red)', fontSize: 12, cursor: 'pointer' }}>
-               
+              <button
+                style={{ background: 'none', border: 'none', color: 'var(--c-red)', fontSize: 12, cursor: 'pointer' }}
+                onClick={() => toast('i', 'Reset Password', 'Password reset is not yet implemented. Contact support.')}
+              >
+                Forgot your password?
               </button>
             </div>
           )}
 
+          {/* OAuth divider */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '20px 0' }}>
             <div style={{ flex: 1, height: 1, background: 'var(--c-glass-bd)' }} />
-            <span style={{ fontSize: 11, color: 'var(--c-text3)' }}></span>
+            <span style={{ fontSize: 11, color: 'var(--c-text3)' }}>OR CONTINUE WITH</span>
             <div style={{ flex: 1, height: 1, background: 'var(--c-glass-bd)' }} />
           </div>
-
-         
-       
         </div>
       </div>
     </div>
@@ -1242,6 +1426,7 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
 /* ════════════════════════════════════════════════════════════
    TESTIMONIALS
 ════════════════════════════════════════════════════════════ */
+
 function TestimonialsSection() {
   return (
     <section className="section" style={{ background: 'var(--c-surface)' }}>
@@ -1326,16 +1511,11 @@ function Footer() {
             <p style={{ fontSize: 13, color: 'var(--c-text3)', lineHeight: 1.75, marginBottom: 6, maxWidth: 280 }}>
               The premium platform for elite video content. Watch how it is done by the best.
             </p>
-            <div className="f-socials">
-              {[['fa-twitter','Twitter'],['fa-instagram','Instagram'],['fa-youtube','YouTube'],['fa-discord','Discord']].map(([icon, name]) => (
-                <button key={name} className="f-social" title={name}><i className={`fab ${icon}`} /></button>
-              ))}
-            </div>
           </div>
           <div className="f-col">
             <h4>Content</h4>
             <ul>
-              {['Browse All','New Releases','Trending','Free Content','Bundles'].map(l => (
+              {['Browse All','New Releases','Trending','Bundles'].map(l => (
                 <li key={l}><a href="#">{l}</a></li>
               ))}
             </ul>
