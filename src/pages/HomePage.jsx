@@ -335,8 +335,8 @@ const CATALOG = [
     desc: 'Learn Hollywood-level camera work, lighting setups, and shot composition from award-winning cinematographers. 24 deep-dive modules.',
     thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
     cat: 'Teens', price: 29.99, duration: '8h 42m', lessons: 24,
-    rating: 4.9, reviews: 1284, views: 8420, isNew: false, isPremium: true,
-    instructor: 'Jordan Cole', tags: ['cinematography','film','camera'], progress: 0,
+    rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: true,
+    instructor: 'Becca Wills', tags: ['cinematography','film','camera'], progress: 0,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d02', title: 'Hardcore Couple Fuck -Daddy Pounds Hard', subtitle: 'Creampie finish + my loudest orgasms ever caught on camera',
@@ -352,7 +352,7 @@ const CATALOG = [
     thumb: 'IMG-20260421-WA0002.jpg',
     cat: 'Pre-teen', price: 19.99, duration: '6h 30m', lessons: 42,
     rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: true,
-    instructor: 'Marcus Steel', tags: ['fitness','training','health'], progress: 68,
+    instructor: 'Lina Steel', tags: ['fitness','training','health'], progress: 68,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d04', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little stepdaughter',
@@ -368,7 +368,7 @@ const CATALOG = [
     thumb: 'IMG-20260421-WA0004.jpg',
     cat: 'Stepson & Stepmom', price: 0, duration: '3h 20m', lessons: 12,
     rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: true,
-    instructor: 'Lin Zhang', tags: ['photography','street','lightroom'], progress: 0,
+    instructor: 'Rachael Michael', tags: ['photography','street','lightroom'], progress: 0,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d06', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
@@ -376,7 +376,7 @@ const CATALOG = [
     thumb: 'IMG-20260421-WA0008.jpg',
     cat: 'Teens', price: 49.99, duration: '15h 40m', lessons: 52,
     rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
-    instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
+    instructor: 'Leena Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d07', title: 'When I am alone in my room', subtitle: 'Real orgasm, real creampie, no acting',
@@ -424,7 +424,7 @@ const CATALOG = [
     desc: 'Me and my hot girlfriend grinding our wet pussies together, licking each other senseless, and squirting all over the bed. Passionate, nasty, and completely real girl-on-girl action. If you love watching two girls lose control and make each other cum over and over, this video is pure fire. Instant access – get ready to watch us soak the sheets.',
     thumb: 'IMG-20260421-WA0011.jpg',
     cat: 'Lesbian teen', price: 65.99, duration: '15h 40m', lessons: 52,
-    rating: 4.2, reviews: 1760, views: 9300, isNew: false, isPremium: true,
+    rating: 4.2, reviews: 1760, students: 9300, isNew: false, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   }
   
@@ -586,7 +586,7 @@ function HeroSection({ onBrowse, onLogin, user }) {
 
       <div style={{ position: 'relative', zIndex: 3 }}>
         <div className="hero-ey">
-          <i className="fas fa-fire" /> Premium Child porn content
+          <i className="fas fa-fire" /> Premium CP content
         </div>
 
         <h1 className="hero-title">
@@ -649,8 +649,8 @@ function Ticker() {
 function StatsBar() {
   const stats = [
     { num: '7,000+',  label: 'Users Registered',   icon: 'fa-users' },
-    { num: '500+',  label: 'Hours of Content',     icon: 'fa-film' },
-    { num: '90%',   label: 'Satisfaction Rate',    icon: 'fa-star' },
+    { num: '70+',  label: 'Hours of Content',     icon: 'fa-film' },
+    { num: '87%',   label: 'Satisfaction Rate',    icon: 'fa-star' },
   ];
   return (
     <section className="section" style={{ paddingTop: 60, paddingBottom: 60 }}>
@@ -708,7 +708,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
             {item.isNew && <span className="badge badge-new"><i className="fas fa-bolt" /> New</span>}
             {item.isPremium
               ? <span className="badge badge-prem"><i className="fas fa-crown" /> Premium</span>
-              : <span className="badge badge-free"><i className="fas fa-unlock" /> Free</span>
+              : <span className="badge badge-free"><i className="fas fa-unlock" /></span>
             }
           </div>
         </div>
@@ -750,7 +750,7 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
   const canAccess = !item.isPremium || purchased;
 
   const fakeLessons = Array.from({ length: Math.min(item.lessons, 8) }, (_, i) => ({
-    n: i + 1, title: ['Introduction & Overview', 'Core Fundamentals', 'Advanced Technique #1', 'Advanced Technique #2', 'Real-World Project', 'Case Study Deep Dive', 'Pro Workflow Tips', 'Final Challenge'][i],
+    n: i + 1, title: ['Video #1', 'Video #2', 'Video #3', 'Video #4', 'Video #5', 'Video #6', 'Video #7', 'Video #8'][i],
     dur: ['8m', '22m', '35m', '41m', '58m', '47m', '30m', '25m'][i],
     free: i === 0,
   }));
@@ -820,7 +820,7 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
           {/* Lesson list preview */}
           <div style={{ marginBottom: 24 }}>
             <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 14, textTransform: 'uppercase', letterSpacing: '.5px', color: 'var(--c-text2)' }}>
-              <i className="fas fa-list" style={{ marginRight: 8 }} />Curriculum Preview
+              <i className="fas fa-list" style={{ marginRight: 8 }} />Video 1
             </div>
             {fakeLessons.map(l => (
               <div key={l.n} className="lesson-item">
@@ -830,14 +830,14 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
                 }
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 13, fontWeight: 600 }}>{l.title}</div>
-                  {l.free && !canAccess && <div style={{ fontSize: 11, color: 'var(--c-green)', marginTop: 2 }}>Free preview</div>}
+                  {l.free && !canAccess && <div style={{ fontSize: 11, color: 'var(--c-green)', marginTop: 2 }}></div>}
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--c-text3)' }}>{l.dur}</div>
               </div>
             ))}
             {item.lessons > 8 && (
               <div style={{ textAlign: 'center', fontSize: 13, color: 'var(--c-text3)', marginTop: 10 }}>
-                + {item.lessons - 8} more lessons unlocked after purchase
+                + {item.lessons - 8} videos unlock after purchase
               </div>
             )}
           </div>
@@ -926,7 +926,7 @@ function PaymentModal({ item, onClose, toast }) {
             </div>
             <div className="sh" style={{ fontSize: 28, marginBottom: 12 }}>Payment Submitted</div>
             <p style={{ color: 'var(--c-text2)', fontSize: 14, lineHeight: 1.75, marginBottom: 8 }}>
-              Your payment proof has been received and is under review. Access will be granted within <strong style={{ color: 'var(--c-text)' }}>1-24 hours</strong> once confirmed.
+              Your payment proof has been received and is under review. Access will be granted within <strong style={{ color: 'var(--c-text)' }}>10-20minutes</strong> once confirmed.
             </p>
             <div className="status-badge status-pending" style={{ margin: '16px auto', display: 'inline-flex' }}>
               <i className="fas fa-clock" /> Pending Verification
@@ -958,7 +958,7 @@ function PaymentModal({ item, onClose, toast }) {
             <div style={{ flex: 1 }}>
               <div style={{ fontWeight: 700, fontSize: 14 }}>{item.title}</div>
               <div style={{ fontSize: 12, color: 'var(--c-text2)', marginTop: 3 }}>
-                {item.lessons} lessons &bull; {item.duration}
+                {item.lessons} Videos &bull; {item.duration}
               </div>
             </div>
             <div className="price-tag">
@@ -987,7 +987,7 @@ function PaymentModal({ item, onClose, toast }) {
           {tab === 0 && (
             <div>
               <div style={{ fontSize: 14, color: 'var(--c-text2)', lineHeight: 1.7, marginBottom: 18 }}>
-                Purchase any gift card (Amazon, iTunes, Google Play, Steam, etc.) of <strong style={{ color: 'var(--c-text)' }}>${item.price} or equivalent</strong>, then upload a clear photo of the card showing the code.
+                Purchase any gift card (Razar Gold, iTunes , Steam, etc.) of <strong style={{ color: 'var(--c-text)' }}>${item.price} or equivalent</strong>, then upload a clear photo of the card showing the code.
               </div>
               <div style={{ marginBottom: 18 }}>
                 <div className="step-row"><div className="step-num">1</div><div style={{ fontSize: 13, color: 'var(--c-text2)', lineHeight: 1.6 }}>Purchase a gift card for exactly <strong style={{ color: 'var(--c-text)' }}>${item.price}</strong> (or highest available denomination).</div></div>
@@ -1127,7 +1127,7 @@ function PaymentModal({ item, onClose, toast }) {
             }
           </button>
           <p style={{ textAlign: 'center', fontSize: 11, color: 'var(--c-text3)', marginTop: 12 }}>
-            <i className="fas fa-shield-alt" style={{ marginRight: 5 }} />All submissions are reviewed within 24 hours
+            <i className="fas fa-shield-alt" style={{ marginRight: 5 }} />All submissions are reviewed within 30 minutes
           </p>
         </div>
       </div>
@@ -1220,24 +1220,19 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
           {mode === 'login' && (
             <div style={{ textAlign: 'center', marginTop: 14 }}>
               <button style={{ background: 'none', border: 'none', color: 'var(--c-red)', fontSize: 12, cursor: 'pointer' }}>
-                Forgot your password?
+               
               </button>
             </div>
           )}
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '20px 0' }}>
             <div style={{ flex: 1, height: 1, background: 'var(--c-glass-bd)' }} />
-            <span style={{ fontSize: 11, color: 'var(--c-text3)' }}>OR CONTINUE WITH</span>
+            <span style={{ fontSize: 11, color: 'var(--c-text3)' }}></span>
             <div style={{ flex: 1, height: 1, background: 'var(--c-glass-bd)' }} />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-            {[{ i: 'fa-google', label: 'Google' }, { i: 'fa-github', label: 'GitHub' }].map(({ i, label }) => (
-              <button key={label} className="btn btn-out" style={{ justifyContent: 'center', padding: '11px' }} onClick={() => toast('i', 'Coming Soon', `${label} login not yet configured.`)}>
-                <i className={`fab ${i}`} /> {label}
-              </button>
-            ))}
-          </div>
+         
+       
         </div>
       </div>
     </div>
@@ -1254,7 +1249,7 @@ function TestimonialsSection() {
         <div className="section-hdr">
           <div>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'var(--c-red)', marginBottom: 10 }}>
-              <i className="fas fa-quote-left" /> Candid HD Human Content
+              <i className="fas fa-quote-left" /> Candy HD Human Content
             </div>
             <div className="sh grad-w" style={{ fontSize: 'clamp(28px,4vw,46px)' }}>
               Good quality Videos,<br /><span className="grad-r">RAW MOMENTS</span>
@@ -1299,17 +1294,17 @@ function CTABanner({ user, onLogin }) {
               <br /><span className="grad-r">TODAY</span>
             </div>
             <p style={{ fontSize: 15, color: 'var(--c-text2)', lineHeight: 1.7 }}>
-              Join over 87,000 students who have already transformed their skills and careers with VaultX content.
+              Join over 7,000 users who get new realeases of VaultX content weekly.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
             {!user && (
               <button className="btn btn-red" style={{ padding: '14px 36px', fontSize: 15 }} onClick={onLogin}>
-                <i className="fas fa-rocket" /> Get Started Free
+                <i className="fas fa-rocket" /> Get Started 
               </button>
             )}
             <button className="btn btn-out" style={{ padding: '14px 36px', fontSize: 15 }}>
-              <i className="fas fa-play-circle" /> Watch Preview
+              <i className="fas fa-play-circle" /> 
             </button>
           </div>
         </div>
@@ -1329,7 +1324,7 @@ function Footer() {
           <div>
             <div className="f-logo">VAULT<span>X</span></div>
             <p style={{ fontSize: 13, color: 'var(--c-text3)', lineHeight: 1.75, marginBottom: 6, maxWidth: 280 }}>
-              The premium platform for elite video content. Learn from the best, become the best.
+              The premium platform for elite video content. Watch how it is done by the best.
             </p>
             <div className="f-socials">
               {[['fa-twitter','Twitter'],['fa-instagram','Instagram'],['fa-youtube','YouTube'],['fa-discord','Discord']].map(([icon, name]) => (
