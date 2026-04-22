@@ -8,6 +8,8 @@
 //  Google Fonts (Bebas Neue + Sora) loaded via @import in STYLES below.
 // ═══════════════════════════════════════════════════════════════
 
+import { useNavigate } from 'react-router';
+import ProfilePage from './ProfilePage';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 /* ════════════════════════════════════════════════════════════
@@ -319,8 +321,8 @@ const apiService = {
   /* Payment */
   initPayment:  (body)         => req('POST', `${API}/payment/initiate`,   body, true),
   payStatus:    (id)           => req('GET',  `${API}/payment/${id}/status`, null, true),
-  uploadProof:  (formData)     => fetch(`${API}/payment/upload-proof`, {
-    method: 'POST', credentials: 'include', body: formData
+  uploadProof:  (formData)     => fetch(`${API}/purchase/checkout`, {
+    method: 'POST', headers: {'Authorization': `Bearer ${TokenStore.getAccess()}`}, body: formData
   }).then(r => r.json()),
 
   /* Engagement */
@@ -929,16 +931,18 @@ function PaymentModal({ item, onClose, toast }) {
     try {
       if (file) {
         const fd = new FormData();
-        fd.append('proof', file);
+        fd.append('paymentProof', file);
         fd.append('contentId', item.id);
-        fd.append('method', tabs[tab].label);
-        fd.append('ref', ref);
+        fd.append('amount', item.price);
+        fd.append('paymentMethod', tabs[tab].label);
+        fd.append('description', ref);
         await apiService.uploadProof(fd);
       } else {
         await apiService.initPayment({ contentId: item.id, method: tabs[tab].label, ref, name, phone });
       }
       setSubmitted(true);
     } catch (_) {
+      _
       toast('e', 'Error', 'Something went wrong. Please try again.');
     } finally {
       setLoading(false);
@@ -997,7 +1001,7 @@ function PaymentModal({ item, onClose, toast }) {
 
           <div className="info-box">
             <i className="fas fa-info-circle" />
-            <div>After payment verification (within 24h), your content will be instantly unlocked. All purchases are reviewed manually by our team.</div>
+            <div>After payment verification (within 10m), your content will be instantly unlocked. All purchases are reviewed manually by our team.</div>
           </div>
 
           {/* Payment method tabs */}
@@ -1035,11 +1039,15 @@ function PaymentModal({ item, onClose, toast }) {
                   : <>
                       <i className="fas fa-cloud-upload-alt" />
                       <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 6 }}>Drop photo here or click to upload</div>
-                      <div style={{ fontSize: 12, color: 'var(--c-text3)' }}>JPG, PNG — max 10MB</div>
+                      <div style={{ fontSize: 12, color: 'var(--c-text3)' }}>JPG, PNG — max 5MB</div>
                     </>
                 }
               </div>
               <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={e => handleFile(e.target.files[0])} />
+              <div style={{marginTop: '12px'}} className="form-group">
+                <label className="lbl">GIFT CARD NUMBER</label>
+                <input className="inp" placeholder="e.g., 8U95-Y3E8CQ-29MPQ" value={ref} onChange={e => setRef(e.target.value)} />
+              </div>
             </div>
           )}
 
@@ -1156,7 +1164,7 @@ function PaymentModal({ item, onClose, toast }) {
             }
           </button>
           <p style={{ textAlign: 'center', fontSize: 11, color: 'var(--c-text3)', marginTop: 12 }}>
-            <i className="fas fa-shield-alt" style={{ marginRight: 5 }} />All submissions are reviewed within 30 minutes
+            <i className="fas fa-shield-alt" style={{ marginRight: 5 }} />All submissions are reviewed within 10 minutes
           </p>
         </div>
       </div>
@@ -1551,11 +1559,7 @@ function Footer() {
   );
 }
 
-/* ════════════════════════════════════════════════════════════
-   MAIN PAGE COMPONENT
-════════════════════════════════════════════════════════════ */
 export default function HomePage() {
-  /* ── State ────────────────────────────────────────────── */
   const [user, setUser]                     = useState(() => {
     const storedUser = localStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser): null;
@@ -1571,8 +1575,9 @@ export default function HomePage() {
   const [authMode, setAuthMode]             = useState('login');
   const [toasts, setToasts]                 = useState([]);
   const [wishlist, setWishlist]             = useState([]);
-  const [purchased, setPurchased]           = useState(['c005']); // c005 is free
+  const [purchased, setPurchased]           = useState(['c005']);
   const contentRef                          = useRef(null);
+  const navigate = useNavigate();
 
   /* ── Inject styles once ─────────────────────────────── */
   useEffect(() => {
@@ -1639,6 +1644,9 @@ export default function HomePage() {
   const handleLogout = async () => {
     try { await apiService.logout(); } catch (_) {}
     setUser(null);
+    localStorage.removeItem("user");
+    TokenStore.clear();
+    
     toast('i', 'Signed out', 'You have been signed out successfully.');
   };
 
@@ -1655,7 +1663,7 @@ export default function HomePage() {
         scrolled={scrolled}
         onLogin={() => handleLogin('login')}
         onLogout={handleLogout}
-        onProfile={() => toast('i', 'Coming Soon', 'Profile page is under development.')}
+        onProfile={() => {navigate('/profile')}}
         toast={toast}
       />
 
