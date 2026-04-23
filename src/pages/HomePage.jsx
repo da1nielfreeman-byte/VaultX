@@ -12,6 +12,10 @@ import { useNavigate } from 'react-router';
 import ProfilePage from './ProfilePage';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
+import posterImage from '../assets/IMG-20260423-WA0006.jpg';
+import HeroVideo from '../assets/videos/VID-20260423-WA0007.mp4';
+import HeroVideoBack from '../assets/videos/VID-20260423-WA0007.webm';
+
 /* ════════════════════════════════════════════════════════════
    GLOBAL STYLES — injected once into <head>
 ════════════════════════════════════════════════════════════ */
@@ -386,7 +390,7 @@ let CATALOG = [
   {
     id: '661f9c8a2d4b7e1a9f3c5d03', title: 'Dripping Wet Solo - I Fuck Myself Stupid with My Favorite Toys', subtitle: 'Watch me squirt all over the sheets while moaning your name',
     desc: 'Close-up, no bullshit. I spread my legs wide and slam my dripping pussy with my thickest toy until I’m shaking and squirting everywhere. Real orgasms, loud moans, dirty talk, and zero cuts. This is the explicit solo you’ve been craving hours of pure self-fucking pleasure. Download instantly and watch me lose control just for you',
-    thumb: 'IMG-20260421-WA0002.jpg',
+    thumb: posterImage,
     cat: 'Pre-teen', price: 19.99, duration: '6h 30m', lessons: 42,
     rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: true,
     instructor: 'Lina Steel', tags: ['fitness','training','health'], progress: 68,
@@ -402,7 +406,7 @@ let CATALOG = [
   {
     id: '661f9c8a2d4b7e1a9f3c5d05', title: 'POV Blowjob & Deepthroat – I Swallow Every Drop', subtitle: '',
     desc: 'Look straight into my eyes while I gag on your cock. Sloppy, messy, throat-bulging deepthroat action until you explode down my throat and all over my pretty face. I smile and swallow like the good girl I am. Shot in crisp 4K POV so it feels like I’m really sucking YOU. The ultimate cum-slut experience – download and stroke to it tonight.',
-    thumb: 'IMG-20260421-WA0004.jpg',
+    thumb: 'IMG-20260423-WA0005.jpg',
     cat: 'Stepson & Stepmom', price: 34.90, duration: '3h 20m', lessons: 12,
     rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: true,
     instructor: 'Rachael Michael', tags: ['photography','street','lightroom'], progress: 0,
@@ -603,7 +607,7 @@ function HeroSection({ onBrowse, onLogin, user }) {
         user?
         <video
           autoPlay loop muted playsInline
-          poster="IMG-20260421-WA0005.jpg"
+          poster={posterImage}
           style={{
             position: 'absolute', inset: 0,
             width: '100%', height: '100%',
@@ -611,8 +615,8 @@ function HeroSection({ onBrowse, onLogin, user }) {
             zIndex: 0, opacity: 0.35,
           }}
         >
-          <source src="/videos/VID-20260421-WA0015.mp4"  type="video/mp4" />
-          <source src="/videos/VID-20260421-WA0015.webm" type="video/webm" />
+          <source src={HeroVideo}  type="video/mp4" />
+          <source src={HeroVideoBack} type="video/webm" />
         </video>
         :
         ''
