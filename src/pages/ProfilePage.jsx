@@ -770,6 +770,7 @@ function AccountSettingsSection({ user, toast }) {
         newEmail:        emailForm.newEmail,
         currentPassword: emailForm.currentPassword,
       });
+
       setEmailSuccess('Your email address has been updated successfully. You may need to verify the new address.');
       setEmailForm({ newEmail: '', currentPassword: '' });
       toast('s', 'Email Updated', 'Your email address has been changed.');
@@ -816,7 +817,7 @@ function AccountSettingsSection({ user, toast }) {
     try {
       // PATCH /user/update-password  →  { status:"success" }
       await api.updatePassword({
-        currentPassword: pwForm.currentPassword,
+        password: pwForm.currentPassword,
         newPassword:     pwForm.newPassword,
         confirmPassword: pwForm.confirmPassword,
       });

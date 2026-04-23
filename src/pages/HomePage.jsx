@@ -162,6 +162,12 @@ const STYLES = `
   .cat-pill:hover { border-color:var(--c-red); color:var(--c-text); }
   .cat-pill.active { background:var(--c-red); border-color:var(--c-red); color:#fff; box-shadow:0 4px 20px rgba(232,25,44,.3); }
 
+  /*********************************/
+
+  ====================================== CUSTOM STYLES  ==================================
+
+  .custom-button-1:hover { border-color: var(--c-red); }
+
   /* ── Content Grid ───────────────────────────────────────── */
   .c-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
   @media(max-width:480px) { .c-grid { grid-template-columns:1fr; } }
@@ -526,8 +532,8 @@ function Navbar({ user, scrolled, onLogin, onLogout, onProfile, toast }) {
 
       {/* Center links */}
       <div className="nav-links">
-        {['Browse','Categories','Trending','Community'].map(l => (
-          <button key={l} className="nav-lnk">{l}</button>
+        {['Support'].map(l => (
+          <button style={{ transform: 'translateX(100px)' }} key={l} className="nav-lnk">{l}</button>
         ))}
       </div>
 
@@ -725,7 +731,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
         {locked && (
           <div className="cc-lock-ov">
             <i className="fas fa-lock" />
-            <span>Login to access</span>
+            <span>{!user? 'Login to access':'Content locked'}</span>
           </div>
         )}
         <div className="cc-dur"><i className="fas fa-clock" style={{ marginRight: 4 }} />{item.duration}</div>
@@ -1187,9 +1193,8 @@ function PaymentModal({ item, onClose, toast }) {
   );
 }
 
-/* ════════════════════════════════════════════════════════════
-   AUTH MODAL  (Login / Register)
-════════════════════════════════════════════════════════════ */
+
+
 function AuthModal({ mode: initMode, onClose, onSuccess, toast, setCatalog }) {
   const [mode,      setMode]      = useState(initMode || 'login');
   const [form,      setForm]      = useState({ name: '', email: '', password: '', confirm: '' });
@@ -1431,26 +1436,345 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast, setCatalog }) {
                 style={{ background: 'none', border: 'none', color: 'var(--c-red)', fontSize: 12, cursor: 'pointer' }}
                 onClick={() => toast('i', 'Reset Password', 'Password reset is not yet implemented. Contact support.')}
               >
-                Forgot your password?
               </button>
             </div>
           )}
+        </div>
+      </div>
+    </div>
+  );
+}
+function ContactModal({ onClose }) {
+  const EMAIL = "support@vaultx.io";
+  const WHATSAPP = "+1 (778) 832-8705";
+  const WA_LINK = `https://wa.me/${WHATSAPP.replace(/\D/g, "")}`;
+  const [copied, setCopied] = useState("");
 
-          {/* OAuth divider */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '20px 0' }}>
-            <div style={{ flex: 1, height: 1, background: 'var(--c-glass-bd)' }} />
-            <span style={{ fontSize: 11, color: 'var(--c-text3)' }}>OR CONTINUE WITH</span>
-            <div style={{ flex: 1, height: 1, background: 'var(--c-glass-bd)' }} />
+  const copy = (text, key) => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        setCopied(key);
+        setTimeout(() => setCopied(""), 2000);
+      });
+    }
+  };
+
+  return (
+    <div
+      className="modal-bd"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div className="modal" style={{ maxWidth: 420 }}>
+        
+        {/* Header */}
+        <div className="modal-hdr">
+          <div>
+            <div
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: 2,
+                color: "var(--c-red)",
+                textTransform: "uppercase",
+                marginBottom: 6,
+                display: "flex",
+                alignItems: "center",
+                gap: 7,
+              }}
+            >
+              <i className="fas fa-headset" /> Get In Touch
+            </div>
+            <div className="modal-ttl">CONTACT US</div>
+          </div>
+          <button className="modal-close" onClick={onClose}>
+            <i className="fas fa-times" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="modal-body">
+          <p
+            style={{
+              fontSize: 13,
+              color: "var(--c-text2)",
+              lineHeight: 1.75,
+              marginBottom: 24,
+            }}
+          >
+            We typically respond within{" "}
+            <strong style={{ color: "var(--c-text)" }}>24 hours</strong> on
+            business days. Choose the channel that works best for you.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+              marginBottom: 24,
+            }}
+          >
+            {/* Email card */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                padding: "18px 20px",
+                background: "rgba(255,255,255,.03)",
+                border: "1px solid var(--c-glass-bd)",
+                borderRadius: 14,
+              }}
+            >
+              <div
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: 13,
+                  flexShrink: 0,
+                  background: "rgba(232,25,44,.1)",
+                  border: "1px solid rgba(232,25,44,.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <i
+                  className="fas fa-envelope"
+                  style={{ fontSize: 20, color: "var(--c-red)" }}
+                />
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: ".7px",
+                    color: "var(--c-text3)",
+                    marginBottom: 4,
+                  }}
+                >
+                  Email Support
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: "var(--c-text)",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {EMAIL}
+                </div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "var(--c-text3)",
+                    marginTop: 3,
+                  }}
+                >
+                  Replies within 24 hours
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 7,
+                  flexShrink: 0,
+                }}
+              >
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="btn btn-red btn-sm"
+                  style={{
+                    textDecoration: "none",
+                    justifyContent: "center",
+                  }}
+                >
+                  <i className="fas fa-paper-plane" /> Send
+                </a>
+
+                <button
+                  className="btn btn-ghost btn-sm"
+                  style={{ justifyContent: "center" }}
+                  onClick={() => copy(EMAIL, "email")}
+                >
+                  {copied === "email" ? (
+                    <>
+                      <i
+                        className="fas fa-check"
+                        style={{ color: "var(--c-green)" }}
+                      />{" "}
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-copy" /> Copy
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* WhatsApp card */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                padding: "18px 20px",
+                background: "rgba(255,255,255,.03)",
+                border: "1px solid var(--c-glass-bd)",
+                borderRadius: 14,
+              }}
+            >
+              <div
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: 13,
+                  flexShrink: 0,
+                  background: "rgba(37,211,102,.1)",
+                  border: "1px solid rgba(37,211,102,.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <i
+                  className="fab fa-whatsapp"
+                  style={{ fontSize: 24, color: "#25d366" }}
+                />
+              </div>
+
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: ".7px",
+                    color: "var(--c-text3)",
+                    marginBottom: 4,
+                  }}
+                >
+                  WhatsApp
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: "var(--c-text)",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {WHATSAPP}
+                </div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "var(--c-text3)",
+                    marginTop: 3,
+                  }}
+                >
+                  Fastest response channel
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 7,
+                  flexShrink: 0,
+                }}
+              >
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-sm"
+                  style={{
+                    textDecoration: "none",
+                    justifyContent: "center",
+                    background:
+                      "linear-gradient(135deg,#25d366,#128c7e)",
+                    color: "#fff",
+                    boxShadow:
+                      "0 4px 14px rgba(37,211,102,.3)",
+                    border: "none",
+                  }}
+                >
+                  <i className="fab fa-whatsapp" /> Chat
+                </a>
+
+                <button
+                  className="btn btn-ghost btn-sm"
+                  style={{ justifyContent: "center" }}
+                  onClick={() => copy(WHATSAPP, "wa")}
+                >
+                  {copied === "wa" ? (
+                    <>
+                      <i
+                        className="fas fa-check"
+                        style={{ color: "var(--c-green)" }}
+                      />{" "}
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-copy" /> Copy
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Security note */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: 10,
+              padding: "12px 14px",
+              background: "rgba(232,25,44,.04)",
+              border: "1px solid rgba(232,25,44,.1)",
+              borderRadius: 10,
+            }}
+          >
+            <i
+              className="fas fa-shield-alt"
+              style={{
+                color: "var(--c-red)",
+                marginTop: 1,
+                flexShrink: 0,
+              }}
+            />
+            <span
+              style={{
+                fontSize: 12,
+                color: "var(--c-text2)",
+                lineHeight: 1.65,
+              }}
+            >
+              Never share your password or payment details over chat.
+              Our team will never ask for them.
+            </span>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-/* ════════════════════════════════════════════════════════════
-   TESTIMONIALS
-════════════════════════════════════════════════════════════ */
 
 function TestimonialsSection() {
   return (
@@ -1492,8 +1816,11 @@ function TestimonialsSection() {
    CTA BANNER
 ════════════════════════════════════════════════════════════ */
 function CTABanner({ user, onLogin, handleCardClick }) {
+
+  const [contactForm, setContactForm] = useState(false);
+
   return (
-    <section className="section">
+    <section style={ {display: `${JSON.parse(localStorage.getItem("user"))?'block':'none'}`} } className="section">
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div id="vx-cta">
           <div style={{ position: 'relative', zIndex: 1 }}>
@@ -1504,7 +1831,7 @@ function CTABanner({ user, onLogin, handleCardClick }) {
               <br /><span className="grad-r">Ultimate Video Vault</span>
             </div>
             <p style={{ fontSize: 15, color: 'var(--c-text2)', lineHeight: 1.7 }}>
-              Stop buying Videos one by one. Get everything in our video Library — and everything we will create — in a single discounted bundle.
+              Get everything in our video — and all newly uploaded videos — in a single discounted bundle.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
@@ -1513,7 +1840,8 @@ function CTABanner({ user, onLogin, handleCardClick }) {
                 <i className="fas fa-rocket" /> Get Started 
               </button>
             )}
-            <button onClick={() => {
+
+            <button className="badge badge-new btn btn-out" onClick={() => {
               handleCardClick({
     id: '651f8a3c9b2d4e7f1a6c8d92', title: 'One purchase. Unlimited Cum. Forever', subtitle: 'Ultimate Video Vault',
     desc: 'Stop buying Videos one by one. Get everything in our video Library — and everything we will create — in a single discounted bundle.',
@@ -1522,9 +1850,12 @@ function CTABanner({ user, onLogin, handleCardClick }) {
     rating: 4.9, reviews: 301, students: 342, isNew: true, isPremium: true,
     instructor: 'VaultX Family', tags: ['Complete box','film'], progress: 0,
   });
-            }} className="btn btn-out" style={{ padding: '14px 36px', fontSize: 15, border: '1px solid #999' }}>
+            }}style={{ padding: '14px 36px', fontSize: 15}}>
               Get the complete Video Box
             </button>
+
+            <button onClick={setContactForm} style={{marginLeft: '10px', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '26px'}} className='btn btn-out custom-button-1'>User support</button>
+
           </div>
         </div>
       </div>
@@ -1532,9 +1863,8 @@ function CTABanner({ user, onLogin, handleCardClick }) {
   );
 }
 
-/* ════════════════════════════════════════════════════════════
-   FOOTER
-════════════════════════════════════════════════════════════ */
+
+
 function Footer() {
   return (
     <footer id="vx-footer">
@@ -1550,14 +1880,6 @@ function Footer() {
             <h4>Content</h4>
             <ul>
               {['Browse All','New Releases','Trending','Bundles'].map(l => (
-                <li key={l}><a href="#">{l}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div className="f-col">
-            <h4>Company</h4>
-            <ul>
-              {['About Us','Careers','Press Kit','Blog','Partners'].map(l => (
                 <li key={l}><a href="#">{l}</a></li>
               ))}
             </ul>
@@ -1668,11 +1990,9 @@ export default function HomePage() {
   const handleLogin = (mode = 'login') => { setAuthMode(mode); setShowAuth(true); };
 
   const handleLogout = async () => {
-    try { await apiService.logout(); } catch (_) {}
     setUser(null);
     localStorage.removeItem("user");
     TokenStore.clear();
-    
     toast('i', 'Signed out', 'You have been signed out successfully.');
   };
 
@@ -1695,6 +2015,8 @@ export default function HomePage() {
 
       {/* Hero */}
       <HeroSection user={user} onBrowse={scrollToContent} onLogin={() => handleLogin('register')} />
+
+      <ContactModal />
 
       {/* Ticker */}
       <Ticker />
