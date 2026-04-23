@@ -366,7 +366,7 @@ let CATALOG = [
     desc: 'Learn Hollywood-level camera work, lighting setups, and shot composition from award-winning cinematographers. 24 deep-dive modules.',
     thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
     cat: 'Teens', price: 29.99, duration: '8h 42m', lessons: 24,
-    rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: false,
+    rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: true,
     instructor: 'Becca Wills', tags: ['cinematography','film','camera'], progress: 0,
   },
   {
@@ -374,7 +374,7 @@ let CATALOG = [
     desc: 'watch my Stepdad destroy my tight little holes in every position. Rough doggy, deep missionary, and a massive creampie that leaks out while I’m still trembling. Real passion, real screams, and the wettest sounds you’ll ever hear. If you love raw, sweaty, no-limits  sex, this is your new favorite video. Instant download – get off to the real thing..',
     thumb: 'IMG-20260421-WA0001.jpg',
     cat: 'Stepdad & Stepdaughter', price: 24.99, duration: '12h 15m', lessons: 38,
-    rating: 4.8, reviews: 2103, students: 15200, isNew: false, isPremium: false,
+    rating: 4.8, reviews: 2103, students: 15200, isNew: false, isPremium: true,
     instructor: 'Maya Beats', tags: ['music','production','beats'], progress: 35,
   },
   {
@@ -382,7 +382,7 @@ let CATALOG = [
     desc: 'Close-up, no bullshit. I spread my legs wide and slam my dripping pussy with my thickest toy until I’m shaking and squirting everywhere. Real orgasms, loud moans, dirty talk, and zero cuts. This is the explicit solo you’ve been craving hours of pure self-fucking pleasure. Download instantly and watch me lose control just for you',
     thumb: 'IMG-20260421-WA0002.jpg',
     cat: 'Pre-teen', price: 19.99, duration: '6h 30m', lessons: 42,
-    rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: false,
+    rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: true,
     instructor: 'Lina Steel', tags: ['fitness','training','health'], progress: 68,
   },
   {
@@ -390,7 +390,7 @@ let CATALOG = [
     desc: 'Build stunning dark-themed interfaces with glassmorphism, neumorphism, and advanced micro-animations in Figma and code.',
     thumb: 'IMG-20260421-WA0003.jpg',
     cat: 'Daddy x daughter', price: 34.99, duration: '10h 05m', lessons: 30,
-    rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: false,
+    rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: true,
     instructor: 'Aria Nova', tags: ['design','ui','figma'], progress: 0,
   },
   {
@@ -398,7 +398,7 @@ let CATALOG = [
     desc: 'Look straight into my eyes while I gag on your cock. Sloppy, messy, throat-bulging deepthroat action until you explode down my throat and all over my pretty face. I smile and swallow like the good girl I am. Shot in crisp 4K POV so it feels like I’m really sucking YOU. The ultimate cum-slut experience – download and stroke to it tonight.',
     thumb: 'IMG-20260421-WA0004.jpg',
     cat: 'Stepson & Stepmom', price: 34.90, duration: '3h 20m', lessons: 12,
-    rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: false,
+    rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: true,
     instructor: 'Rachael Michael', tags: ['photography','street','lightroom'], progress: 0,
   },
   {
@@ -406,7 +406,7 @@ let CATALOG = [
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'IMG-20260421-WA0008.jpg',
     cat: 'Teens', price: 49.99, duration: '15h 40m', lessons: 52,
-    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: false,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
     instructor: 'Leena Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
@@ -414,7 +414,7 @@ let CATALOG = [
     desc: 'My daddy pins me down, chokes me, and pounds my tight pussy until I’m screaming. I cum twice before he fills me up with a huge creampie that drips out while I’m still shaking. Passionate, rough, and 100% real',
     thumb: 'IMG-20260421-WA0006.jpg',
     cat: 'Lesbian teen', price: 85, duration: '11h 10m', lessons: 68,
-    rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: false,
+    rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: true,
     instructor: 'Lisa Sharma', tags: ['react','nextjs','coding'], progress: 12,
   },
   {
@@ -422,7 +422,7 @@ let CATALOG = [
     desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'IMG-20260421-WA0007.jpg',
     cat: 'Daddy x daughter', price: 85, duration: '4h 55m', lessons: 28,
-    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: false,
+    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
   },
   {
@@ -430,7 +430,7 @@ let CATALOG = [
     desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'Screenshot_2026-04-21-19-28-37-295_com.google.android.apps.photos~2.jpg',
     cat: 'Dog knotting', price: 75.99, duration: '6h 55m', lessons: 28,
-    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: false,
+    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Eleanora Vance', tags: ['branding','marketing','business'], progress: 0,
 
   },
@@ -439,7 +439,7 @@ let CATALOG = [
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'IMG-20260421-WA0012.jpg',
     cat: 'Pre-teen', price: 49.99, duration: '15h 40m', lessons: 52,
-    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: false,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
@@ -447,7 +447,7 @@ let CATALOG = [
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'IMG-20260421-WA0013.jpg',
     cat: 'Stepdad & Stepdaughter', price:150 , duration: '15h 40m', lessons: 52,
-    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: false,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
@@ -455,7 +455,7 @@ let CATALOG = [
     desc: 'Me and my hot girlfriend grinding our wet pussies together, licking each other senseless, and squirting all over the bed. Passionate, nasty, and completely real girl-on-girl action. If you love watching two girls lose control and make each other cum over and over, this video is pure fire. Instant access – get ready to watch us soak the sheets.',
     thumb: 'IMG-20260421-WA0011.jpg',
     cat: 'Lesbian teen', price: 65.99, duration: '15h 40m', lessons: 52,
-    rating: 4.2, reviews: 1760, students: 9300, isNew: false, isPremium: false,
+    rating: 4.2, reviews: 1760, students: 9300, isNew: false, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   }
   
@@ -725,7 +725,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
         {locked && (
           <div className="cc-lock-ov">
             <i className="fas fa-lock" />
-            <span>Premium Content</span>
+            <span>Login to access</span>
           </div>
         )}
         <div className="cc-dur"><i className="fas fa-clock" style={{ marginRight: 4 }} />{item.duration}</div>
@@ -745,7 +745,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
           <span className="cc-cat">{item.cat}</span>
           <div style={{ display: 'flex', gap: 6 }}>
             {item.isNew && <span className="badge badge-new"><i className="fas fa-bolt" /> New</span>}
-            {item.isPremium
+            {JSON.parse(localStorage.getItem("user"))
               ? <span className="badge badge-prem"><i className="fas fa-crown" /> Premium</span>
               : <span className="badge badge-free"><i className="fas fa-unlock" /></span>
             }
@@ -771,7 +771,7 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
 
         <div className="cc-by">
           <i className="fas fa-user-circle" style={{ marginRight: 5 }} />{item.instructor}
-          &nbsp;&nbsp;<i className="fas fa-book-open" style={{ marginRight: 5 }} />{item.lessons} Videos
+          &nbsp;&nbsp;<i className="fas fa-video" style={{ marginRight: 5 }} />{item.lessons} Videos
         </div>
 
         {/* Progress bar (if any) */}
@@ -851,9 +851,9 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
           <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', margin: '20px 0 24px', fontSize: 13, color: 'var(--c-text2)' }}>
             {[
               { i: 'fa-clock',            v: item.duration },
-              { i: 'fa-book-open',        v: `${item.lessons} lessons` },
+              { i: 'fa-video',        v: `${item.lessons} Videos` },
               { i: 'fa-star',             v: `${item.rating} (${item.reviews.toLocaleString()} reviews)` },
-              { i: 'fa-users',            v: `${item.students.toLocaleString()} students` },
+              { i: 'fa-eye',            v: `${item.students.toLocaleString()} Views` },
             ].map(({ i, v }) => (
               <div key={v} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
                 <i className={`fas ${i}`} style={{ color: 'var(--c-red)', width: 14 }} /> {v}
@@ -1491,20 +1491,20 @@ function TestimonialsSection() {
 /* ════════════════════════════════════════════════════════════
    CTA BANNER
 ════════════════════════════════════════════════════════════ */
-function CTABanner({ user, onLogin }) {
+function CTABanner({ user, onLogin, handleCardClick }) {
   return (
     <section className="section">
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div id="vx-cta">
           <div style={{ position: 'relative', zIndex: 1 }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'var(--c-red)', marginBottom: 12 }}>
-              <i className="fas fa-bolt" /> Limited preview time
+              <i className="fas fa-bolt" /> One purchase. Unlimited Cum. Forever.
             </div>
             <div className="sh grad-w" style={{ fontSize: 'clamp(28px,4vw,50px)', marginBottom: 16 }}>
-              <br /><span className="grad-r">TODAY</span>
+              <br /><span className="grad-r">Ultimate Video Vault</span>
             </div>
             <p style={{ fontSize: 15, color: 'var(--c-text2)', lineHeight: 1.7 }}>
-              Join over 7,000 users who get new realeases of VaultX content weekly.
+              Stop buying Videos one by one. Get everything in our video Library — and everything we will create — in a single discounted bundle.
             </p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
@@ -1513,8 +1513,17 @@ function CTABanner({ user, onLogin }) {
                 <i className="fas fa-rocket" /> Get Started 
               </button>
             )}
-            <button className="btn btn-out" style={{ padding: '14px 36px', fontSize: 15 }}>
-              <i className="fas fa-play-circle" /> 
+            <button onClick={() => {
+              handleCardClick({
+    id: '651f8a3c9b2d4e7f1a6c8d92', title: 'One purchase. Unlimited Cum. Forever', subtitle: 'Ultimate Video Vault',
+    desc: 'Stop buying Videos one by one. Get everything in our video Library — and everything we will create — in a single discounted bundle.',
+    thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
+    cat: 'complete', price: 300.00, duration: '80h+', lessons: 146,
+    rating: 4.9, reviews: 301, students: 342, isNew: true, isPremium: true,
+    instructor: 'VaultX Family', tags: ['Complete box','film'], progress: 0,
+  });
+            }} className="btn btn-out" style={{ padding: '14px 36px', fontSize: 15, border: '1px solid #999' }}>
+              Get the complete Video Box
             </button>
           </div>
         </div>
@@ -1763,7 +1772,7 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* CTA */}
-      <CTABanner user={user} onLogin={() => handleLogin('register')} />
+      <CTABanner handleCardClick={handleCardClick} user={user} onLogin={() => handleLogin('register')} />
 
       {/* Footer */}
       <Footer />
