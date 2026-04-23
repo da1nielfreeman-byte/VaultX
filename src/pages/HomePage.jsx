@@ -360,13 +360,13 @@ function req(method, url, body = null, auth = false) {
   });
 }
 
-const CATALOG = [
+let CATALOG = [
   {
     id: '661f9c8a2d4b7e1a9f3c5d01', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
     desc: 'Learn Hollywood-level camera work, lighting setups, and shot composition from award-winning cinematographers. 24 deep-dive modules.',
     thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
     cat: 'Teens', price: 29.99, duration: '8h 42m', lessons: 24,
-    rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: true,
+    rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: false,
     instructor: 'Becca Wills', tags: ['cinematography','film','camera'], progress: 0,
   },
   {
@@ -374,7 +374,7 @@ const CATALOG = [
     desc: 'watch my Stepdad destroy my tight little holes in every position. Rough doggy, deep missionary, and a massive creampie that leaks out while I’m still trembling. Real passion, real screams, and the wettest sounds you’ll ever hear. If you love raw, sweaty, no-limits  sex, this is your new favorite video. Instant download – get off to the real thing..',
     thumb: 'IMG-20260421-WA0001.jpg',
     cat: 'Stepdad & Stepdaughter', price: 24.99, duration: '12h 15m', lessons: 38,
-    rating: 4.8, reviews: 2103, students: 15200, isNew: false, isPremium: true,
+    rating: 4.8, reviews: 2103, students: 15200, isNew: false, isPremium: false,
     instructor: 'Maya Beats', tags: ['music','production','beats'], progress: 35,
   },
   {
@@ -382,23 +382,23 @@ const CATALOG = [
     desc: 'Close-up, no bullshit. I spread my legs wide and slam my dripping pussy with my thickest toy until I’m shaking and squirting everywhere. Real orgasms, loud moans, dirty talk, and zero cuts. This is the explicit solo you’ve been craving hours of pure self-fucking pleasure. Download instantly and watch me lose control just for you',
     thumb: 'IMG-20260421-WA0002.jpg',
     cat: 'Pre-teen', price: 19.99, duration: '6h 30m', lessons: 42,
-    rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: true,
+    rating: 4.7, reviews: 3840, students: 22100, isNew: false, isPremium: false,
     instructor: 'Lina Steel', tags: ['fitness','training','health'], progress: 68,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d04', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little stepdaughter',
     desc: 'Build stunning dark-themed interfaces with glassmorphism, neumorphism, and advanced micro-animations in Figma and code.',
     thumb: 'IMG-20260421-WA0003.jpg',
-    cat: 'Daddy x daughter', price: 34.99, duration: '10h 05m', videos: 30,
-    rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: true,
+    cat: 'Daddy x daughter', price: 34.99, duration: '10h 05m', lessons: 30,
+    rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: false,
     instructor: 'Aria Nova', tags: ['design','ui','figma'], progress: 0,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d05', title: 'POV Blowjob & Deepthroat – I Swallow Every Drop', subtitle: '',
     desc: 'Look straight into my eyes while I gag on your cock. Sloppy, messy, throat-bulging deepthroat action until you explode down my throat and all over my pretty face. I smile and swallow like the good girl I am. Shot in crisp 4K POV so it feels like I’m really sucking YOU. The ultimate cum-slut experience – download and stroke to it tonight.',
     thumb: 'IMG-20260421-WA0004.jpg',
-    cat: 'Stepson & Stepmom', price: 0, duration: '3h 20m', lessons: 12,
-    rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: true,
+    cat: 'Stepson & Stepmom', price: 34.90, duration: '3h 20m', lessons: 12,
+    rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: false,
     instructor: 'Rachael Michael', tags: ['photography','street','lightroom'], progress: 0,
   },
   {
@@ -406,7 +406,7 @@ const CATALOG = [
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'IMG-20260421-WA0008.jpg',
     cat: 'Teens', price: 49.99, duration: '15h 40m', lessons: 52,
-    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: false,
     instructor: 'Leena Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
@@ -414,7 +414,7 @@ const CATALOG = [
     desc: 'My daddy pins me down, chokes me, and pounds my tight pussy until I’m screaming. I cum twice before he fills me up with a huge creampie that drips out while I’m still shaking. Passionate, rough, and 100% real',
     thumb: 'IMG-20260421-WA0006.jpg',
     cat: 'Lesbian teen', price: 85, duration: '11h 10m', lessons: 68,
-    rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: true,
+    rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: false,
     instructor: 'Lisa Sharma', tags: ['react','nextjs','coding'], progress: 12,
   },
   {
@@ -422,7 +422,7 @@ const CATALOG = [
     desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'IMG-20260421-WA0007.jpg',
     cat: 'Daddy x daughter', price: 85, duration: '4h 55m', lessons: 28,
-    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
+    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: false,
     instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
   },
   {
@@ -430,8 +430,8 @@ const CATALOG = [
     desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'Screenshot_2026-04-21-19-28-37-295_com.google.android.apps.photos~2.jpg',
     cat: 'Dog knotting', price: 75.99, duration: '6h 55m', lessons: 28,
-    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
-    instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
+    rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: false,
+    instructor: 'Eleanora Vance', tags: ['branding','marketing','business'], progress: 0,
 
   },
   {
@@ -439,7 +439,7 @@ const CATALOG = [
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'IMG-20260421-WA0012.jpg',
     cat: 'Pre-teen', price: 49.99, duration: '15h 40m', lessons: 52,
-    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: false,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
@@ -447,7 +447,7 @@ const CATALOG = [
     desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
     thumb: 'IMG-20260421-WA0013.jpg',
     cat: 'Stepdad & Stepdaughter', price:150 , duration: '15h 40m', lessons: 52,
-    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
+    rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: false,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
@@ -455,11 +455,18 @@ const CATALOG = [
     desc: 'Me and my hot girlfriend grinding our wet pussies together, licking each other senseless, and squirting all over the bed. Passionate, nasty, and completely real girl-on-girl action. If you love watching two girls lose control and make each other cum over and over, this video is pure fire. Instant access – get ready to watch us soak the sheets.',
     thumb: 'IMG-20260421-WA0011.jpg',
     cat: 'Lesbian teen', price: 65.99, duration: '15h 40m', lessons: 52,
-    rating: 4.2, reviews: 1760, students: 9300, isNew: false, isPremium: true,
+    rating: 4.2, reviews: 1760, students: 9300, isNew: false, isPremium: false,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   }
   
 ];
+
+function makeContentsPremium() {
+  CATALOG = CATALOG.map(catalogItem => {
+    return {...catalogItem, isPremium: true}
+  })
+  return CATALOG
+}
 
 const TESTIMONIALS = [];
 
@@ -702,6 +709,7 @@ function StatsBar() {
    CONTENT CARD
 ════════════════════════════════════════════════════════════ */
 function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay = 0 }) {
+  const user = JSON.parse(localStorage.getItem("user")) || null;
   const locked = item.isPremium && !purchased;
   return (
     <div className="cc" onClick={() => onClick(item)} style={{ animationDelay: `${delay}s` }}>
@@ -745,15 +753,22 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
         </div>
         <div className="cc-title">{item.title}</div>
         <div className="cc-desc">{item.desc}</div>
+
         <div className="cc-foot">
-          <div className="cc-price" style={item.price === 0 ? { color: 'var(--c-green)' } : {}}>
-            {item.price === 0 ? 'FREE' : `$${item.price}`}
-          </div>
+          {
+            user?
+            <div className="cc-price" style={item.price === 0 ? { color: 'var(--c-green)' } : {}}>
+              {item.price === 0 ? 'FREE' : `$${item.price}`}
+            </div>
+            :
+            ''
+          }
           <div className="cc-rating">
             <i className="fas fa-star" /> {item.rating}
             <span style={{ color: 'var(--c-text3)' }}>({item.reviews.toLocaleString()})</span>
           </div>
         </div>
+
         <div className="cc-by">
           <i className="fas fa-user-circle" style={{ marginRight: 5 }} />{item.instructor}
           &nbsp;&nbsp;<i className="fas fa-book-open" style={{ marginRight: 5 }} />{item.lessons} Videos
@@ -809,9 +824,9 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
           ) : (
             <div className="vid-locked">
               <i className="fas fa-lock" style={{ fontSize: 36, color: 'var(--c-red)', marginBottom: 14, display: 'block' }} />
-              <div className="sh" style={{ fontSize: 20, marginBottom: 8 }}>Premium Content</div>
+              <div className="sh" style={{ fontSize: 20, marginBottom: 8 }}>HD Content</div>
               <p style={{ color: 'var(--c-text2)', fontSize: 14, lineHeight: 1.7, marginBottom: 24, maxWidth: 400, margin: '0 auto 24px' }}>
-                Unlock <strong style={{ color: 'var(--c-text)' }}>{item.title}</strong> and get full lifetime access to all {item.lessons} lessons, downloadable resources, and the private community.
+                Unlock <strong style={{ color: 'var(--c-text)' }}>{item.title}</strong> and get full lifetime access to all {item.lessons} HD CP, downloadable Videos, and the private community.
               </p>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
                 {user ? (
@@ -821,7 +836,7 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
                 ) : (
                   <>
                     <button className="btn btn-red" onClick={() => { onClose(); onLogin(); }}>
-                      <i className="fas fa-sign-in-alt" /> Sign In to Purchase
+                      <i className="fas fa-sign-in-alt" /> Sign In to gain access
                     </button>
                     <button className="btn btn-out" onClick={() => { onClose(); onLogin('register'); }}>
                       <i className="fas fa-user-plus" /> Create Free Account
@@ -868,7 +883,7 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
             ))}
             {item.lessons > 8 && (
               <div style={{ textAlign: 'center', fontSize: 13, color: 'var(--c-text3)', marginTop: 10 }}>
-                + {item.lessons - 8} videos unlock after purchase
+                + {item.lessons - 8} videos unlock after signin
               </div>
             )}
           </div>
@@ -1175,7 +1190,7 @@ function PaymentModal({ item, onClose, toast }) {
 /* ════════════════════════════════════════════════════════════
    AUTH MODAL  (Login / Register)
 ════════════════════════════════════════════════════════════ */
-function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
+function AuthModal({ mode: initMode, onClose, onSuccess, toast, setCatalog }) {
   const [mode,      setMode]      = useState(initMode || 'login');
   const [form,      setForm]      = useState({ name: '', email: '', password: '', confirm: '' });
   const [loading,   setLoading]   = useState(false);
@@ -1238,6 +1253,7 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast }) {
 
       toast('s', 'Welcome!', mode === 'login' ? 'Signed in successfully.' : 'Account created!');
       onSuccess(user);
+      setCatalog(makeContentsPremium);
       onClose();
 
     } catch (err) {
@@ -1578,6 +1594,7 @@ export default function HomePage() {
   const [purchased, setPurchased]           = useState(['c005']);
   const contentRef                          = useRef(null);
   const navigate = useNavigate();
+  const [catalog, setCatalog]               = useState(CATALOG);
 
   /* ── Inject styles once ─────────────────────────────── */
   useEffect(() => {
@@ -1613,7 +1630,7 @@ export default function HomePage() {
   }, []);
 
   /* ── Filter + sort catalog ──────────────────────────── */
-  const filtered = CATALOG
+  const filtered = catalog
     .filter(c => activeCat === 'All' || c.cat === activeCat)
     .filter(c => !search || c.title.toLowerCase().includes(search.toLowerCase()) || c.tags.some(t => t.includes(search.toLowerCase())))
     .sort((a, b) => {
@@ -1691,7 +1708,7 @@ export default function HomePage() {
               </div>
             </div>
             <div style={{ fontSize: 13, color: 'var(--c-text2)' }}>
-              {filtered.length} content{filtered.length !== 1 ? 's' : ''} available
+              {filtered.length} package{filtered.length !== 1 ? 's' : ''} available
             </div>
           </div>
 
@@ -1774,6 +1791,7 @@ export default function HomePage() {
       {showAuth && (
         <AuthModal
           mode={authMode}
+          setCatalog={setCatalog}
           onClose={() => setShowAuth(false)}
           onSuccess={handleAuthSuccess}
           toast={toast}

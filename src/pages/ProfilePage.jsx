@@ -1279,6 +1279,7 @@ export default function ProfilePage({ onNavigateHome, onLogout: parentLogout }) 
   /* ── Logout handler ── */
   const handleLogout = useCallback(() => {
     TokenStore.clear();
+    localStorage.removeItem("user");
     toast('i', 'Signed out', 'You have been signed out successfully.');
     setTimeout(() => {
       if (parentLogout)    parentLogout();
