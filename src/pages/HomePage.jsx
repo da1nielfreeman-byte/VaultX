@@ -924,10 +924,10 @@ function PaymentModal({ item, onClose, toast }) {
   if (!item) return null;
 
   const tabs = [
-    { icon: 'fa-gift',        label: 'Gift Card'    },
-    { icon: 'fa-university',  label: 'Bank Transfer' },
-    { icon: 'fa-coins',       label: 'Crypto'       },
-    { icon: 'fa-mobile-alt',  label: 'Mobile Money' },
+    { icon: 'fa-gift',        label: 'Gift Card', enabled: true},
+    { icon: 'fa-university',  label: 'Bank Transfer', enabled: false },
+    { icon: 'fa-coins',       label: 'Crypto', enabled: true       },
+    { icon: 'fa-mobile-alt',  label: 'Mobile Money', enabled: false },
   ];
 
   const handleFile = (f) => {
@@ -1031,7 +1031,17 @@ function PaymentModal({ item, onClose, toast }) {
           </div>
           <div className="pay-tabs">
             {tabs.map((t, i) => (
-              <button key={t.label} className={`pay-tab${tab === i ? ' active' : ''}`} onClick={() => { setTab(i); setFile(null); setPreview(null); }}>
+              <button key={t.label} className={`pay-tab${tab === i ? ' active' : ''}`} onClick={() => {
+                if(t.enabled) {
+                  setTab(i); 
+                  setFile(null); 
+                  setPreview(null); 
+                } else {
+                  toast("i", "Payment method", "Coming soon.");
+                }
+              }
+            }
+              >
                 <i className={`fas ${t.icon}`} /> {t.label}
               </button>
             ))}
@@ -1074,34 +1084,7 @@ function PaymentModal({ item, onClose, toast }) {
 
           {/* ── Bank Transfer ── */}
           {tab === 1 && (
-            <div>
-              <div style={{ marginBottom: 18 }}>
-                <div className="lbl">Bank Details</div>
-                {[
-                  ['Bank Name',       'VaultX Global Bank'],
-                  ['Account Name',    'VaultX Inc.'],
-                  ['Account Number',  '0123456789'],
-                  ['Routing / SWIFT', 'VXBKUS33'],
-                  ['Amount',          `$${item.price} USD`],
-                ].map(([k, v]) => (
-                  <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', borderBottom: '1px solid var(--c-glass-bd)', fontSize: 13 }}>
-                    <span style={{ color: 'var(--c-text2)' }}>{k}</span>
-                    <strong>{v}</strong>
-                  </div>
-                ))}
-              </div>
-              <div className="form-group">
-                <label className="lbl">Transfer Reference Number</label>
-                <input className="inp" placeholder="e.g. TXN-20240420-001" value={ref} onChange={e => setRef(e.target.value)} />
-              </div>
-              <div className="form-group">
-                <label className="lbl">Upload Transfer Receipt (optional)</label>
-                <div className={`upload-z${drag ? ' drag' : ''}`} onClick={() => fileRef.current?.click()} onDragOver={e => { e.preventDefault(); setDrag(true); }} onDragLeave={() => setDrag(false)} onDrop={handleDrop}>
-                  {preview ? <img src={preview} className="upload-preview" alt="preview" /> : <><i className="fas fa-file-invoice" /><div style={{ fontWeight: 600, fontSize: 14 }}>Upload receipt</div></>}
-                </div>
-                <input ref={fileRef} type="file" accept="image/*,application/pdf" style={{ display: 'none' }} onChange={e => handleFile(e.target.files[0])} />
-              </div>
-            </div>
+           {}
           )}
 
           {/* ── Crypto ── */}
@@ -1109,9 +1092,9 @@ function PaymentModal({ item, onClose, toast }) {
             <div>
               <div style={{ marginBottom: 20 }}>
                 {[
-                  { coin: 'Bitcoin (BTC)',  addr: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh',  icon: 'fa-bitcoin-sign' },
-                  { coin: 'Ethereum (ETH)', addr: '0x71C7656EC7ab88b098defB751B7401B5f6d8976F', icon: 'fa-ethereum' },
-                  { coin: 'USDT (TRC-20)', addr: 'TN3W4H6rK2ce4vX9YnFQHwKx8Kj1gKr1z',             icon: 'fa-circle-dollar-to-slot' },
+                  { coin: 'Bitcoin (BTC)',  addr: '12yaCjN6wCG2SpYvUszrGFiVYYWGT5RwnN',  icon: 'fa-bitcoin-sign' },
+                  { coin: 'Ethereum (ETH)', addr: '0x4985991562842267fa3ec3ae7ec7cc3bd14c8fa1', icon: 'fa-ethereum' },
+                  { coin: 'USDT (ERC20)', addr: '0x4985991562842267fa3ec3ae7ec7cc3bd14c8fa1',  icon: 'fa-circle-dollar-to-slot' },
                 ].map(({ coin, addr, icon }) => (
                   <div key={coin} style={{ marginBottom: 14 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, fontSize: 13, fontWeight: 600 }}>
@@ -1444,7 +1427,7 @@ function AuthModal({ mode: initMode, onClose, onSuccess, toast, setCatalog }) {
     </div>
   );
 }
-function ContactModal({ onClose }) {
+function ContactModal({ onClose, setCloseContact }) {
   const EMAIL = "support@vaultx.io";
   const WHATSAPP = "+1 (778) 832-8705";
   const WA_LINK = `https://wa.me/${WHATSAPP.replace(/\D/g, "")}`;
@@ -1486,7 +1469,9 @@ function ContactModal({ onClose }) {
             </div>
             <div className="modal-ttl">CONTACT US</div>
           </div>
-          <button className="modal-close" onClick={onClose}>
+          <button className="modal-close" onClick={() => {
+            setCloseContact(false);
+          }}>
             <i className="fas fa-times" />
           </button>
         </div>
@@ -1815,7 +1800,7 @@ function TestimonialsSection() {
 /* ════════════════════════════════════════════════════════════
    CTA BANNER
 ════════════════════════════════════════════════════════════ */
-function CTABanner({ user, onLogin, handleCardClick }) {
+function CTABanner({ user, onLogin, handleCardClick, setCloseContact }) {
 
   const [contactForm, setContactForm] = useState(false);
 
@@ -1854,7 +1839,7 @@ function CTABanner({ user, onLogin, handleCardClick }) {
               Get the complete Video Box
             </button>
 
-            <button onClick={setContactForm} style={{marginLeft: '10px', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '26px'}} className='btn btn-out custom-button-1'>User support</button>
+            <button onClick={() => {setCloseContact(true)}} style={{marginLeft: '10px', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '26px'}} className='btn btn-out custom-button-1'>User support</button>
 
           </div>
         </div>
@@ -1926,6 +1911,7 @@ export default function HomePage() {
   const contentRef                          = useRef(null);
   const navigate = useNavigate();
   const [catalog, setCatalog]               = useState(CATALOG);
+  const [closeContact, setCloseContact]     = useState(false);
 
   /* ── Inject styles once ─────────────────────────────── */
   useEffect(() => {
@@ -2016,7 +2002,12 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection user={user} onBrowse={scrollToContent} onLogin={() => handleLogin('register')} />
 
-      <ContactModal />
+      {
+        closeContact?
+          <ContactModal setCloseContact={setCloseContact} />
+        :
+        ''
+      }
 
       {/* Ticker */}
       <Ticker />
@@ -2094,7 +2085,7 @@ export default function HomePage() {
       <TestimonialsSection />
 
       {/* CTA */}
-      <CTABanner handleCardClick={handleCardClick} user={user} onLogin={() => handleLogin('register')} />
+      <CTABanner setCloseContact={setCloseContact} handleCardClick={handleCardClick} user={user} onLogin={() => handleLogin('register')} />
 
       {/* Footer */}
       <Footer />
