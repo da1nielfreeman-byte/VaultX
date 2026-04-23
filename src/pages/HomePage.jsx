@@ -369,7 +369,7 @@ function req(method, url, body = null, auth = false) {
 let CATALOG = [
   {
     id: '661f9c8a2d4b7e1a9f3c5d01', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
-    desc: 'Learn Hollywood-level camera work, lighting setups, and shot composition from award-winning cinematographers. 24 deep-dive modules.',
+    desc: 'this petite babe gives him blowjob and sucks his balls.She bends over while he licks her ass and fucks her',
     thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
     cat: 'Teens', price: 29.99, duration: '8h 42m', lessons: 24,
     rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: true,
@@ -384,7 +384,7 @@ let CATALOG = [
     instructor: 'Maya Beats', tags: ['music','production','beats'], progress: 35,
   },
   {
-    id: '661f9c8a2d4b7e1a9f3c5d03', title: 'Dripping Wet Solo – I Fuck Myself Stupid with My Favorite Toys', subtitle: 'Watch me squirt all over the sheets while moaning your name',
+    id: '661f9c8a2d4b7e1a9f3c5d03', title: 'Dripping Wet Solo - I Fuck Myself Stupid with My Favorite Toys', subtitle: 'Watch me squirt all over the sheets while moaning your name',
     desc: 'Close-up, no bullshit. I spread my legs wide and slam my dripping pussy with my thickest toy until I’m shaking and squirting everywhere. Real orgasms, loud moans, dirty talk, and zero cuts. This is the explicit solo you’ve been craving hours of pure self-fucking pleasure. Download instantly and watch me lose control just for you',
     thumb: 'IMG-20260421-WA0002.jpg',
     cat: 'Pre-teen', price: 19.99, duration: '6h 30m', lessons: 42,
@@ -392,8 +392,8 @@ let CATALOG = [
     instructor: 'Lina Steel', tags: ['fitness','training','health'], progress: 68,
   },
   {
-    id: '661f9c8a2d4b7e1a9f3c5d04', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little stepdaughter',
-    desc: 'Build stunning dark-themed interfaces with glassmorphism, neumorphism, and advanced micro-animations in Figma and code.',
+    id: '661f9c8a2d4b7e1a9f3c5d04', title: 'Who knew my stepdad was this hot', subtitle: 'Stepdad feels his little daughter',
+    desc: 'Daddy gives her nice orgasms, this one gladly opens up then swallows every drop for the camera. Damn, I’m speechless… YES! She is tiny :when I say “tiny”, that’s not exaggeration. She’s only 4’ 10 tall and weighs just 85lbs Whoa',
     thumb: 'IMG-20260421-WA0003.jpg',
     cat: 'Daddy x daughter', price: 34.99, duration: '10h 05m', lessons: 30,
     rating: 5.0, reviews: 892, students: 5610, isNew: true, isPremium: true,
@@ -424,8 +424,8 @@ let CATALOG = [
     instructor: 'Lisa Sharma', tags: ['react','nextjs','coding'], progress: 12,
   },
   {
-    id: '661f9c8a2d4b7e1a9f3c5d08', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
-    desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
+    id: '661f9c8a2d4b7e1a9f3c5d08', title: 'Blonde teen is teasing her bffs stepdad for him to let them have fun', subtitle: ' He removes her panties and fingers her.She gives him blowjob and gets fucked',
+    desc: 'I mean… just look at this girl, she is gorgeous. Angelic face, hot body and the best feature of all… she’s absolutely LOVES to please a man sexually. I mean, everything she does just oozes with sexuality. She smokes my pole with her mouth and even licks my nutsack like it’s made of candy. She loves to get fucked and even asks me to fuck her harder and squeeze her little tities',
     thumb: 'IMG-20260421-WA0007.jpg',
     cat: 'Daddy x daughter', price: 85, duration: '4h 55m', lessons: 28,
     rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
@@ -449,8 +449,8 @@ let CATALOG = [
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
   {
-    id: '661f9c8a2d4b7e1a9f3c5d0b', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
-    desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
+    id: '661f9c8a2d4b7e1a9f3c5d0b', title: 'Spicy Latina Teen Gets Sooooo Much Cum Pumped Deep into her Shaved Snatch ', subtitle: ' He Blows Cum Bubbles With Her Pussy',
+    desc: 'She lets me know before we start that she’s good with letting me cum anywhere that I want, so the entire time I’m looking forward to a being able to give her a cunt full of cum (Heh-Heh!). She also got this denim mini skirt that I pull up to reveal some thong panties and a larger ass for her petite frame. I stroke her “kitty” through the panties and pull them aside to reveal a gorgeous camel toe pussy! I grab some good head from this teen and facefuck her submissive mouth as well',
     thumb: 'IMG-20260421-WA0013.jpg',
     cat: 'Stepdad & Stepdaughter', price:150 , duration: '15h 40m', lessons: 52,
     rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
