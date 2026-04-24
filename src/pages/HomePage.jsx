@@ -316,6 +316,17 @@ const TokenStore = {
   },
 };
 
+function createFormData({ contentId, amount, description, paymentMethod }) {
+  const formData = new FormData();
+
+  formData.append('contentId', contentId);
+  formData.append('amount', amount);
+  formData.append('description', description);
+  formData.append('paymentMethod', paymentMethod);
+
+  return formData
+}
+
 const apiService = {
   /* Auth */
   login:        (body)         => req('POST', `${API}/auth/login`,         body),
@@ -329,8 +340,14 @@ const apiService = {
   getPurchases: ()             => req('GET',  `${API}/user/purchases`,       null, true),
 
   /* Payment */
-  initPayment:  (body)         => req('POST', `${API}/payment/initiate`,   body, true),
+  initPayment:  (bodyData)         => fetch(`${API}/purchase/checkout`, {
+    method: 'POST',
+    headers: {'Authorization': `Bearer ${TokenStore.getAccess()}`},
+    body: createFormData(bodyData)
+  }).then(r => r.json()),
+
   payStatus:    (id)           => req('GET',  `${API}/payment/${id}/status`, null, true),
+
   uploadProof:  (formData)     => fetch(`${API}/purchase/checkout`, {
     method: 'POST', headers: {'Authorization': `Bearer ${TokenStore.getAccess()}`}, body: formData
   }).then(r => r.json()),
@@ -375,8 +392,8 @@ let CATALOG = [
     id: '661f9c8a2d4b7e1a9f3c5d01', title: 'Daddy gives me a creampie', subtitle: 'DADDY X DAUGHTER',
     desc: 'this petite babe gives him blowjob and sucks his balls.She bends over while he licks her ass and fucks her',
     thumb: '6146e1e5afaa0cd2712a688f11389333.jpg',
-    cat: 'Teens', price: 29.99, duration: '8h 42m', lessons: 24,
-    rating: 4.9, reviews: 1284, students: 8420, isNew: false, isPremium: true,
+    cat: 'Teens', price: 59.99, duration: '8h 42m', lessons: 24,
+    rating: 4.9, reviews: 1284, students: 750, isNew: false, isPremium: true,
     instructor: 'Becca Wills', tags: ['cinematography','film','camera'], progress: 0,
   },
   {
@@ -412,8 +429,8 @@ let CATALOG = [
     instructor: 'Rachael Michael', tags: ['photography','street','lightroom'], progress: 0,
   },
   {
-    id: '661f9c8a2d4b7e1a9f3c5d06', title: 'Horny Girl Can’t Stop Fingering Herself Until She Squirts', subtitle: 'Watch me cum so hard my legs shake',
-    desc: 'I’m so fucking wet and needy today… I tease my swollen clit and slide two fingers deep inside while moaning your name. My pussy grips tight as I edge myself over and over until I explode in a messy, shaking orgasm. Full HD, close-up, loud and unfiltered.',
+    id: '661f9c8a2d4b7e1a9f3c5d06', title: 'Daddy takes good care of my clits', subtitle: 'See how hard he cums in me till I cannot move',
+    desc: 'I have been with him so long and did not know he could handling me so well from gentle carassing to deep and intense sex watch how he does it to me while I cry and beg him for more',
     thumb: 'IMG-20260421-WA0008.jpg',
     cat: 'Teens', price: 49.99, duration: '15h 40m', lessons: 52,
     rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
@@ -423,7 +440,7 @@ let CATALOG = [
     id: '661f9c8a2d4b7e1a9f3c5d07', title: 'When I am alone in my room', subtitle: 'Real orgasm, real creampie, no acting',
     desc: 'My daddy pins me down, chokes me, and pounds my tight pussy until I’m screaming. I cum twice before he fills me up with a huge creampie that drips out while I’m still shaking. Passionate, rough, and 100% real',
     thumb: 'IMG-20260421-WA0006.jpg',
-    cat: 'Lesbian teen', price: 85, duration: '11h 10m', lessons: 68,
+    cat: 'Lesbian teen', price: 46.99, duration: '11h 10m', lessons: 68,
     rating: 4.8, reviews: 4210, students: 28700, isNew: false, isPremium: true,
     instructor: 'Lisa Sharma', tags: ['react','nextjs','coding'], progress: 12,
   },
@@ -431,15 +448,15 @@ let CATALOG = [
     id: '661f9c8a2d4b7e1a9f3c5d08', title: 'Blonde teen is teasing her bffs stepdad for him to let them have fun', subtitle: ' He removes her panties and fingers her.She gives him blowjob and gets fucked',
     desc: 'I mean… just look at this girl, she is gorgeous. Angelic face, hot body and the best feature of all… she’s absolutely LOVES to please a man sexually. I mean, everything she does just oozes with sexuality. She smokes my pole with her mouth and even licks my nutsack like it’s made of candy. She loves to get fucked and even asks me to fuck her harder and squeeze her little tities',
     thumb: 'IMG-20260421-WA0007.jpg',
-    cat: 'Daddy x daughter', price: 85, duration: '4h 55m', lessons: 28,
+    cat: 'Daddy x daughter', price: 65, duration: '4h 55m', lessons: 28,
     rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Sofia Voss', tags: ['branding','marketing','business'], progress: 0,
   },
   {
     id: '661f9c8a2d4b7e1a9f3c5d09', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
-    desc: 'I’ve been training my ass for weeks… today I finally slide a big toy inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
+    desc: 'I’ve been training my ass for weeks… today I finally allow my dog slide a big dih inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'Screenshot_2026-04-21-19-28-37-295_com.google.android.apps.photos~2.jpg',
-    cat: 'Dog knotting', price: 75.99, duration: '6h 55m', lessons: 28,
+    cat: 'Dog knotting', price: 50, duration: '6h 55m', lessons: 28,
     rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Eleanora Vance', tags: ['branding','marketing','business'], progress: 0,
 
@@ -456,7 +473,7 @@ let CATALOG = [
     id: '661f9c8a2d4b7e1a9f3c5d0b', title: 'Spicy Latina Teen Gets Sooooo Much Cum Pumped Deep into her Shaved Snatch ', subtitle: ' He Blows Cum Bubbles With Her Pussy',
     desc: 'She lets me know before we start that she’s good with letting me cum anywhere that I want, so the entire time I’m looking forward to a being able to give her a cunt full of cum (Heh-Heh!). She also got this denim mini skirt that I pull up to reveal some thong panties and a larger ass for her petite frame. I stroke her “kitty” through the panties and pull them aside to reveal a gorgeous camel toe pussy! I grab some good head from this teen and facefuck her submissive mouth as well',
     thumb: 'IMG-20260421-WA0013.jpg',
-    cat: 'Stepdad & Stepdaughter', price:150 , duration: '15h 40m', lessons: 52,
+    cat: 'Stepdad & Stepdaughter', price:60 , duration: '15h 40m', lessons: 52,
     rating: 4.9, reviews: 1760, students: 9300, isNew: true, isPremium: true,
     instructor: 'Alex Mercer', tags: ['crypto','trading','finance'], progress: 0,
   },
@@ -798,6 +815,10 @@ function ContentCard({ item, onClick, onWishlist, isWishlisted, purchased, delay
   );
 }
 
+function generateMinuteStamp() {
+  return String(Math.floor(Math.random()*60)).padStart("0", 2) + 'm';
+}
+
 /* ════════════════════════════════════════════════════════════
    CONTENT VIEWER MODAL  (locked / unlocked)
 ════════════════════════════════════════════════════════════ */
@@ -807,7 +828,7 @@ function ContentModal({ item, user, purchased, onClose, onPayment, onLogin }) {
 
   const fakeLessons = Array.from({ length: Math.min(item.lessons, 8) }, (_, i) => ({
     n: i + 1, title: ['Video #1', 'Video #2', 'Video #3', 'Video #4', 'Video #5', 'Video #6', 'Video #7', 'Video #8'][i],
-    dur: ['8m', '22m', '35m', '41m', '58m', '47m', '30m', '25m'][i],
+    dur: [`${generateMinuteStamp()}`, `${generateMinuteStamp()}`, `${generateMinuteStamp()}`, `${generateMinuteStamp()}`, `${generateMinuteStamp()}`, `${generateMinuteStamp()}`, `${generateMinuteStamp()}`, `${generateMinuteStamp()}`][i],
     free: i === 0,
   }));
 
@@ -963,7 +984,7 @@ function PaymentModal({ item, onClose, toast }) {
         fd.append('description', ref);
         await apiService.uploadProof(fd);
       } else {
-        await apiService.initPayment({ contentId: item.id, method: tabs[tab].label, ref, name, phone });
+        await apiService.initPayment({ contentId: item.id, paymentMethod: tabs[tab].label, amount: item.price, description: ref, name, phone });
       }
       setSubmitted(true);
     } catch (_) {
@@ -1096,9 +1117,9 @@ function PaymentModal({ item, onClose, toast }) {
             <div>
               <div style={{ marginBottom: 20 }}>
                 {[
-                  { coin: 'Bitcoin (BTC)',  addr: '12yaCjN6wCG2SpYvUszrGFiVYYWGT5RwnN',  icon: 'fa-bitcoin-sign' },
+                  { coin: 'Bitcoin (BTC)',  addr: '12yaCjN6wCG2SpYvUszrGFiVYYWGT5RwnN',  icon: 'fa-bitcoin' },
                   { coin: 'Ethereum (ETH)', addr: '0x4985991562842267fa3ec3ae7ec7cc3bd14c8fa1', icon: 'fa-ethereum' },
-                  { coin: 'USDT (ERC20)', addr: '0x4985991562842267fa3ec3ae7ec7cc3bd14c8fa1',  icon: 'fa-circle-dollar-to-slot' },
+                  { coin: 'USDT (ERC20)', addr: '0x4985991562842267fa3ec3ae7ec7cc3bd14c8fa1',  icon: 'fa-dollar' },
                 ].map(({ coin, addr, icon }) => (
                   <div key={coin} style={{ marginBottom: 14 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, fontSize: 13, fontWeight: 600 }}>
