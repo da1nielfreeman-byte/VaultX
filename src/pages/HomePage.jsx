@@ -424,7 +424,7 @@ let CATALOG = [
     id: '661f9c8a2d4b7e1a9f3c5d05', title: 'POV Blowjob & Deepthroat – I Swallow Every Drop', subtitle: '',
     desc: 'Look straight into my eyes while I gag on your cock. Sloppy, messy, throat-bulging deepthroat action until you explode down my throat and all over my pretty face. I smile and swallow like the good girl I am. Shot in crisp 4K POV so it feels like I’m really sucking YOU. The ultimate cum-slut experience – download and stroke to it tonight.',
     thumb: 'IMG-20260423-WA0005.jpg',
-    cat: 'Stepson & Stepmom', price: 34.90, duration: '3h 20m', lessons: 12,
+    cat: 'Stepson & Stepmom', price: 34.95, duration: '3h 20m', lessons: 12,
     rating: 4.6, reviews: 521, students: 34000, isNew: false, isPremium: true,
     instructor: 'Rachael Michael', tags: ['photography','street','lightroom'], progress: 0,
   },
@@ -456,7 +456,7 @@ let CATALOG = [
     id: '661f9c8a2d4b7e1a9f3c5d09', title: 'First Time Anal with my dog – Watch Me Take It All', subtitle: ' My dog Stretching my tight ass until I cum',
     desc: 'I’ve been training my ass for weeks… today I finally allow my dog slide a big dih inside while I rub my clit. You get to see every inch stretch me open, my moans get louder, and I have the most intense anal orgasm you’ve ever seen',
     thumb: 'Screenshot_2026-04-21-19-28-37-295_com.google.android.apps.photos~2.jpg',
-    cat: 'Dog knotting', price: 50.10, duration: '6h 55m', lessons: 28,
+    cat: 'Dog knotting', price: 50.18, duration: '6h 55m', lessons: 28,
     rating: 4.7, reviews: 683, students: 4100, isNew: true, isPremium: true,
     instructor: 'Eleanora Vance', tags: ['branding','marketing','business'], progress: 0,
 
